@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   root 'home#index'
   
   get 'home/index'
-
   get 'home/charts'
-
   get 'home/tables'
+  get 'home/c1charts'
+  get 'home/giftcharts'
+  get 'home/goldcharts'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

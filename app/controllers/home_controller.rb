@@ -7,4 +7,13 @@ class HomeController < ApplicationController
 
   def tables
   end
+  
+  def c1charts
+  end
+  
+  def giftcharts
+  end
+  
+  def goldcharts
+  end
 end
