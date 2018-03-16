@@ -1,9 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.public_file_server.headers = {
-    'Access-Control-Allow-Origin' => '*',
-    'Access-Control-Request-Method' => %w{GET OPTIONS}.join(",")
-  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
