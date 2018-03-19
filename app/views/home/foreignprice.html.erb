@@ -143,7 +143,7 @@
   $(document).ready(function(){
     setInterval(function (){
       $.ajax({
-        url: "https://investingcrawling-sungheeek.c9users.io/investing/json",
+        url: "http://61.72.187.6/phps/forNowJ",
         type: "GET",
         dataType: "json",
         async: false,
@@ -350,7 +350,7 @@
             json_data += '<tr>'
             json_data += '<td>'+value.title+'</td>';
             json_data += '<td>'+value.date+'</td>';
-            json_data += '<td>'+value.closed+'</td>';
+            json_data += '<td>'+value.current+'</td>';
             json_data += '<td>'+value.high+'</td>';
             json_data += '<td>'+value.low+'</td>';
             if(value.variance.charAt(0) == '+'){
@@ -381,7 +381,7 @@
             json_data += '<tr>'
             json_data += '<td>'+value.title+'</td>';
             json_data += '<td>'+value.date+'</td>';
-            json_data += '<td>'+value.closed+'</td>';
+            json_data += '<td>'+value.current+'</td>';
             json_data += '<td>'+value.high+'</td>';
             json_data += '<td>'+value.low+'</td>';
             if(value.variance.charAt(0) == '+'){
@@ -424,7 +424,7 @@
             $.each(data.usdkrw, function(key, value){
             json_data += '<tr>'
             json_data += '<td>'+value.title+'</td>';
-            json_data += '<td>'+value.event+'</td>';
+            json_data += '<td>'+value.date+'</td>';
             json_data += '<td>'+value.current+'</td>';
             json_data += '<td>'+value.high+'</td>';
             json_data += '<td>'+value.low+'</td>';

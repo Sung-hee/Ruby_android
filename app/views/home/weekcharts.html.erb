@@ -23,22 +23,22 @@
     
     <div class="btn-group" role="group" style="width:100%; margin: 0;">
       <div class="btn-group btn-group-toggle" data-toggle="radio" style="width:100%;">
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/charts';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/charts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 일
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/weekcharts';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/weekcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 주
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/monthcharts';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/monthcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 월
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/c1charts';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/c1charts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> C1고저차트
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/giftcharts';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/giftcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 선물차트
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/goldcharts';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/goldcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 황금차트
         </label>
       </div>
