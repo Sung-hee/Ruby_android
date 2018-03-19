@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   root 'home#index'
   
-  get 'home/index'
-  get 'home/charts'
-  get 'home/weekcharts'
-  get 'home/monthcharts'
-  get 'home/tables'
-  get 'home/c1charts'
-  get 'home/giftcharts'
-  get 'home/goldcharts'
+  get 'home/index' => 'home#index'
+  get 'home/charts' => 'home#charts'
+  get 'home/weekcharts' => 'home#weekcharts'
+  get 'home/monthcharts' => 'home#monthcharts'
+  get 'home/tables' => 'home#tables'
+  get 'home/c1charts' => 'home#c1charts'
+  get 'home/giftcharts' => 'home#giftcharts'
+  get 'home/goldcharts' => 'home#goldcharts'
+  get 'home/foreignprice' => 'home#foreignprice'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

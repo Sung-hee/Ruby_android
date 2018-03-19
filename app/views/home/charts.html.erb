@@ -20,13 +20,12 @@
         </span>
       </div>
     </form>
-    
     <div class="btn-group" role="group" style="width:100%; margin: 0;">
       <div class="btn-group btn-group-toggle" data-toggle="radio" style="width:100%;">
         <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/charts';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 일
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/weekcharts';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/weekcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 주
         </label>
         <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/monthcharts';">
@@ -46,7 +45,7 @@
     <!-- Area Chart Example-->
     <div class="card mb-10">
       <div class="card-header" id="charts">
-        <i class="fa fa-area-chart"></i>ㅁㄴㅇ
+        <i class="fa fa-area-chart"></i>
       </div>
     </div>
   </div>
@@ -62,7 +61,6 @@
           function decode(s) {
               return decodeURIComponent(s.split("+").join(" "));
           }
-  
           _parammap[decode(arguments[1])] = decode(arguments[2]);
       });
   
@@ -73,7 +71,7 @@
   var ajaxdata;
   
   $(document).ready(function(){
-    ajaxdata = setInterval(autodata, 5000);
+    ajaxdata = setInterval(autodata, 1000);
   });
   
   function autodata(){

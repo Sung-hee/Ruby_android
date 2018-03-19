@@ -1,0 +1,458 @@
+<div class="content-wrapper">
+  <table class="table" id="table_id" style="height:100%;">
+    <thead>
+      <tr style="background-color:#F0F0F0">
+        <th>종목</th>
+        <th>월물</th>
+        <th>현재가</th>
+        <th>고가</th>
+        <th>저가</th>
+        <th>변동</th>
+        <th>변동 %</th>
+        <th>시간</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>다우존스</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>S%P 500</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>나스닥 100</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr style="background-color:#F0F0F0">
+        <th>지수</th>
+        <th>-</th>
+        <th>현재가</th>
+        <th>고가</th>
+        <th>저가</th>
+        <th>변동</th>
+        <th>변동 %</th>
+        <th>시간</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>닛케이</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>상하이종합</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr style="background-color:#F0F0F0">
+        <th>상품</th>
+        <th>월물</th>
+        <th>종가</th>
+        <th>고가</th>
+        <th>저가</th>
+        <th>변동</th>
+        <th>변동 %</th>
+        <th>시간</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>금</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>WTI유</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr style="background-color:#F0F0F0">
+        <th>종목</th>
+        <th>종목</th>
+        <th>종가</th>
+        <th>고가</th>
+        <th>저가</th>
+        <th>변동</th>
+        <th>변동 %</th>
+        <th>시간</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>달러/원</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function(){
+    setInterval(function (){
+      $.ajax({
+        url: "https://investingcrawling-sungheeek.c9users.io/investing/json",
+        type: "GET",
+        dataType: "json",
+        async: false,
+        success: function(data){
+          var json_data = '';
+          
+          // 선물지수
+          json_data += '<thead>';
+          json_data += '<tr style="background-color:#F0F0F0">'
+          json_data += '<th>종목</th>';
+          json_data += '<th>월물</th>';
+          json_data += '<th>현재가</th>';
+          json_data += '<th>고가</th>';
+          json_data += '<th>저가</th>';
+          json_data += '<th>변동</th>';
+          json_data += '<th>변동 %</th>';
+          json_data += '<th>시간</th>';
+          json_data += '</tr>'
+          json_data += '</thead>';
+          
+          json_data += '<tbdoy>';
+          $.each(data.dji, function(key, value){
+            json_data += '<tr>'
+            json_data += '<td>'+value.title+'</td>';
+            json_data += '<td>'+value.date+'</td>';
+            json_data += '<td>'+value.current+'</td>';
+            json_data += '<td>'+value.high+'</td>';
+            json_data += '<td>'+value.low+'</td>';
+            if(value.variance.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance+'</td>';              
+            }
+            else if(value.variance.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance+'</td>';
+            }
+            if(value.variance_per.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
+            }
+            else if(value.variance_per.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance_per+'</td>';
+            }
+            json_data += '<td>'+value.hours+'</td>';
+            json_data += '</tr>';
+          });
+          json_data += '</tbdoy>';
+          
+          json_data += '<tbdoy>';
+          $.each(data.sp500, function(key, value){
+            json_data += '<tr>'
+            json_data += '<td>'+value.title+'</td>';
+            json_data += '<td>'+value.date+'</td>';
+            json_data += '<td>'+value.current+'</td>';
+            json_data += '<td>'+value.high+'</td>';
+            json_data += '<td>'+value.low+'</td>';
+            if(value.variance.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance+'</td>';              
+            }
+            else if(value.variance.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance+'</td>';
+            }
+            if(value.variance_per.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
+            }
+            else if(value.variance_per.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance_per+'</td>';
+            }
+            json_data += '<td>'+value.hours+'</td>';
+            json_data += '</tr>';
+          });
+          json_data += '</tbdoy>';
+          
+          json_data += '<tbdoy>';
+          $.each(data.nasdaq, function(key, value){
+            json_data += '<tr>'
+            json_data += '<td>'+value.title+'</td>';
+            json_data += '<td>'+value.date+'</td>';
+            json_data += '<td>'+value.current+'</td>';
+            json_data += '<td>'+value.high+'</td>';
+            json_data += '<td>'+value.low+'</td>';
+            if(value.variance.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance+'</td>';              
+            }
+            else if(value.variance.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance+'</td>';
+            }
+            if(value.variance_per.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
+            }
+            else if(value.variance_per.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance_per+'</td>';
+            }
+            json_data += '<td>'+value.hours+'</td>';
+            json_data += '</tr>';
+          });
+          json_data += '</tbdoy>';
+          
+          // 세계주요지수
+          json_data += '<thead>';
+          json_data += '<tr style="background-color:#F0F0F0">'
+          json_data += '<th>지수</th>';
+          json_data += '<th>-</th>';
+          json_data += '<th>현재가</th>';
+          json_data += '<th>고가</th>';
+          json_data += '<th>저가</th>';
+          json_data += '<th>변동</th>';
+          json_data += '<th>변동 %</th>';
+          json_data += '<th>시간</th>';
+          json_data += '</tr>'
+          json_data += '</thead>';
+          
+          json_data += '<tbdoy>';
+          $.each(data.nikkei, function(key, value){
+            json_data += '<tr>'
+            json_data += '<td>'+value.title+'</td>';
+            json_data += '<td>-</td>';
+            json_data += '<td>'+value.current+'</td>';
+            json_data += '<td>'+value.high+'</td>';
+            json_data += '<td>'+value.low+'</td>';
+            if(value.variance.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance+'</td>';              
+            }
+            else if(value.variance.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance+'</td>';
+            }
+            if(value.variance_per.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
+            }
+            else if(value.variance_per.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance_per+'</td>';
+            }
+            json_data += '<td>'+value.hours+'</td>';
+            json_data += '</tr>';
+          });
+          json_data += '</tbdoy>';
+          
+          json_data += '<tbdoy>';
+          $.each(data.ssec, function(key, value){
+            json_data += '<tr>'
+            json_data += '<td>'+value.title+'</td>';
+            json_data += '<td>-</td>';
+            json_data += '<td>'+value.current+'</td>';
+            json_data += '<td>'+value.high+'</td>';
+            json_data += '<td>'+value.low+'</td>';
+            if(value.variance.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance+'</td>';              
+            }
+            else if(value.variance.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance+'</td>';
+            }
+            if(value.variance_per.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
+            }
+            else if(value.variance_per.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance_per+'</td>';
+            }
+            json_data += '<td>'+value.hours+'</td>';
+            json_data += '</tr>';
+          });
+          json_data += '<thead>';
+          json_data += '<tr style="background-color:#F0F0F0">'
+          json_data += '<th>상품</th>';
+          json_data += '<th>월물</th>';
+          json_data += '<th>종가</th>';
+          json_data += '<th>고가</th>';
+          json_data += '<th>저가</th>';
+          json_data += '<th>변동</th>';
+          json_data += '<th>변동 %</th>';
+          json_data += '<th>시간</th>';
+          json_data += '</tr>'
+          json_data += '</thead>';
+          
+          // 실시간 상품
+          json_data += '</tbdoy>';
+            $.each(data.gold, function(key, value){
+            json_data += '<tr>'
+            json_data += '<td>'+value.title+'</td>';
+            json_data += '<td>'+value.date+'</td>';
+            json_data += '<td>'+value.closed+'</td>';
+            json_data += '<td>'+value.high+'</td>';
+            json_data += '<td>'+value.low+'</td>';
+            if(value.variance.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance+'</td>';              
+            }
+            else if(value.variance.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance+'</td>';
+            }
+            if(value.variance_per.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
+            }
+            else if(value.variance_per.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance_per+'</td>';
+            }
+            json_data += '<td>'+value.hours+'</td>';
+            json_data += '</tr>';
+          });
+          json_data += '</tbdoy>';
+          
+          json_data += '</tbdoy>';
+            $.each(data.wti, function(key, value){
+            json_data += '<tr>'
+            json_data += '<td>'+value.title+'</td>';
+            json_data += '<td>'+value.date+'</td>';
+            json_data += '<td>'+value.closed+'</td>';
+            json_data += '<td>'+value.high+'</td>';
+            json_data += '<td>'+value.low+'</td>';
+            if(value.variance.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance+'</td>';              
+            }
+            else if(value.variance.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance+'</td>';
+            }
+            if(value.variance_per.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
+            }
+            else if(value.variance_per.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance_per+'</td>';
+            }
+            json_data += '<td>'+value.hours+'</td>';
+            json_data += '</tr>';
+          });
+          json_data += '</tbdoy>';
+          
+          json_data += '<thead>';
+          json_data += '<tr style="background-color:#F0F0F0">'
+          json_data += '<th>종목</th>';
+          json_data += '<th>종목</th>';
+          json_data += '<th>현재가</th>';
+          json_data += '<th>고가</th>';
+          json_data += '<th>저가</th>';
+          json_data += '<th>변동</th>';
+          json_data += '<th>변동 %</th>';
+          json_data += '<th>시간</th>';
+          json_data += '</tr>'
+          json_data += '</thead>';
+          // 달러
+          json_data += '</tbdoy>';
+            $.each(data.usdkrw, function(key, value){
+            json_data += '<tr>'
+            json_data += '<td>'+value.title+'</td>';
+            json_data += '<td>'+value.event+'</td>';
+            json_data += '<td>'+value.current+'</td>';
+            json_data += '<td>'+value.high+'</td>';
+            json_data += '<td>'+value.low+'</td>';
+            if(value.variance.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance+'</td>';              
+            }
+            else if(value.variance.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance+'</td>';
+            }
+            if(value.variance_per.charAt(0) == '+'){
+              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
+            }
+            else if(value.variance_per.charAt(0) == '-'){
+              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
+            }
+            else {
+              json_data += '<td>'+value.variance_per+'</td>';
+            }
+            json_data += '<td>'+value.hours+'</td>';
+            json_data += '</tr>';
+          });
+          json_data += '</tbdoy>';
+          $('#table_id').html(json_data);
+        }
+      });
+    }, 1000)
+  });
+</script>

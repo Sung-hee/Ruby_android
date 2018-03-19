@@ -3,6 +3,8 @@ class HomeController < ApplicationController
   end
 
   def charts
+    @urlparam = request.original_url.split('?').first
+    
   end
   
   def weekcharts
@@ -21,5 +23,9 @@ class HomeController < ApplicationController
   end
   
   def goldcharts
+  end
+  
+  def foreignprice
+    
   end
 end

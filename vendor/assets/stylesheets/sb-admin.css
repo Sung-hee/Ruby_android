@@ -424,9 +424,9 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   top: -25px;
   right: -25px;
   font-size: 5rem;
-  -webkit-transform: rotate(15deg);
-  -ms-transform: rotate(15deg);
-  transform: rotate(15deg);
+  /*-webkit-transform: rotate(15deg);*/
+  /*-ms-transform: rotate(15deg);*/
+  /*transform: rotate(15deg);*/
 }
 
 @media (min-width: 576px) {

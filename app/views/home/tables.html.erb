@@ -14,6 +14,56 @@
 
 <div class="content-wrapper">
 <!-- Example DataTables Card-->
+  <div clase="serch-conditions">
+    <form action="/home/tables" method="get" style="margin: 10px;">
+      <label style="margin: 10px;">황금알점수
+        <select name="gold">
+          <option value="10000">1등급</option>
+          <option value="01000">2등급</option>
+          <option value="00100">3등급</option>
+          <option value="00010">4등급</option>
+          <option value="00001">5등급</option>
+        </select>
+      </label>
+      <label style="margin: 10px;">파워등급
+        <select name="power">
+          <option value="10000">1등급</option>
+          <option value="01000">2등급</option>
+          <option value="00100">3등급</option>
+          <option value="00010">4등급</option>
+          <option value="00001">5등급</option>
+        </select>
+      </label>
+      <label style="margin: 10px;">수급등급
+        <select name="supply">
+          <option value="10000">1등급</option>
+          <option value="01000">2등급</option>
+          <option value="00100">3등급</option>
+          <option value="00010">4등급</option>
+          <option value="00001">5등급</option>
+        </select>
+      </label>
+      <label style="margin: 10px;">실적등급
+        <select name="performance">
+          <option value="10000">1등급</option>
+          <option value="01000">2등급</option>
+          <option value="00100">3등급</option>
+          <option value="00010">4등급</option>
+          <option value="00001">5등급</option>
+        </select>
+      </label>
+      <label style="margin: 10px;">현재가치
+        <select name="value">
+          <option value="10000">1등급</option>
+          <option value="01000">2등급</option>
+          <option value="00100">3등급</option>
+          <option value="00010">4등급</option>
+          <option value="00001">5등급</option>
+        </select>
+      </label>
+      <input type="submit" value="검색" style="margin: 10px;"></type>
+    </form>
+  </div>
   <div class="table-responsive">
     <table class="table" id="stock_table" width="100%; margin:0;">
       <thead>
