@@ -10,20 +10,83 @@
 
 <div class="content-wrapper">
   <div class="container-fluid">
-  <!-- Breadcrumbs-->
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a href="/">HOME</a>
-      </li>
-      <li class="breadcrumb-item active">차트</li>
-      <li class="breadcrumb-item active">캔들스틱 차트</li>
-    </ol>
-  <!-- Area Chart Example-->
-  <div class="card mb-10">
-    <div class="card-header">
-      <i class="fa fa-area-chart"></i> 캔들스틱 차트</div>
-    <div class="card-body">
-      <div id="container" style="width:100%; height: 100%; min-width: 100%; margin:0;"></div>
+    <form class="form-inline my-2 my-lg-0 mr-lg-2" action="/home/charts" method="get" style="float: right;">
+      <div class="input-group" >
+        <input class="form-control" type="text" name="name" placeholder="종목을 검색해주세요" style="float: right"/>
+        <span class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    </form>
+    
+    <div class="btn-group" role="group" style="width:100%; margin: 0;">
+      <div class="btn-group btn-group-toggle" data-toggle="radio" style="width:100%;">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/charts';">
+          <input type="radio" name="buttons" style="pointer-events:none"/> 일
+        </label>
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/weekcharts';">
+          <input type="radio" name="buttons" style="pointer-events:none"/> 주
+        </label>
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/monthcharts';">
+          <input type="radio" name="buttons" style="pointer-events:none"/> 월
+        </label>
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/c1charts';">
+          <input type="radio" name="buttons" style="pointer-events:none"/> C1고저차트
+        </label>
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/giftcharts';">
+          <input type="radio" name="buttons" style="pointer-events:none"/> 선물차트
+        </label>
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/goldcharts';">
+          <input type="radio" name="buttons" style="pointer-events:none"/> 황금차트
+        </label>
+      </div>
     </div>
+    <!-- Area Chart Example-->
+    <div class="card mb-10">
+      <div class="card-header" id="charts">
+        <i class="fa fa-area-chart"</i> 
+      </div>
+    </div>
+    <div id="container" style="width:100%; height: 100%; min-width: 100%; margin:0;">
   </div>
 </div>
+
+<script>
+  var getParam = function(key){
+      var _parammap = {};
+      document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+          function decode(s) {
+              return decodeURIComponent(s.split("+").join(" "));
+          }
+  
+          _parammap[decode(arguments[1])] = decode(arguments[2]);
+      });
+  
+      return _parammap[key];
+  };
+  
+  var companycode = getParam("name");
+  var ajaxdata;
+  
+  $(document).ready(function(){
+    ajaxdata = setInterval(autodata, 5000);
+  });
+  
+  function autodata(){
+    $.ajax({
+      url: "http://61.72.187.6/phps/now?name=" + companycode,
+      type: "GET",
+      dataType: "json",
+      async: false,
+      success: function(data){
+        var json_data = '';
+        $.each(data, function(key, value){
+          json_data += '<i class="fa fa-area-chart">'+value.name+'('+value.code+')'+'nbsp&nbsp&nbsp'+value.now+'value.semo'+'$nbsp'+value.pok+'$nbsp$nbsp'+value.per+'%</i>';
+        });
+        $('#charts').html(json_data);
+      }
+    });
+  }
+</script>

@@ -4,6 +4,12 @@ class HomeController < ApplicationController
 
   def charts
   end
+  
+  def weekcharts
+  end
+  
+  def monthcharts
+  end
 
   def tables
   end

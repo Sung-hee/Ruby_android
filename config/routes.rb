@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   get 'home/index'
   get 'home/charts'
+  get 'home/weekcharts'
+  get 'home/monthcharts'
   get 'home/tables'
   get 'home/c1charts'
   get 'home/giftcharts'
