@@ -15,14 +15,14 @@
 <!-- Example DataTables Card-->
   <div clase="serch-conditions">
     <form action="/home/tables" method="get" style="margin: 10px;">
-                <input type="submit" value="검색" class="btn btn-primary" style="float: right; margin: 10px;">
+      <input type="submit" value="검색" class="btn btn-primary" style="float: right; margin: 10px;">
       <div class="table-responsive">
         <table class="table" id="stock_table" width="100%; margin:0;">
           <thead>
             <tr>
-              <th scope="col">&nbsp&nbsp종목명</th>
-              <th scope="col">
-                <label for="gold">&nbsp&nbsp황금알점수</label>
+              <th scope="col" style="padding: .75rem 1.2rem;">종목명</th>
+              <th scope="col" style="padding: .75rem 1.2rem;">
+                <label for="gold">황금알점수</label>
                 <select id="gold" name="gold" class="form-control" style="display: block; width: 35%">
                   <option value="10000">1등급</option>
                   <option value="01000">2등급</option>
@@ -31,8 +31,8 @@
                   <option value="00001">5등급</option>
                 </select>
               </th>
-              <th scope="col">
-                <label for="power">&nbsp&nbsp파워등급</label>
+              <th scope="col" style="padding: .75rem 1.2rem;">
+                <label for="power">파워등급</label>
                 <select id="power" name="power" class="form-control" style="display: block; width: 35%;">
                   <option value="10000">1등급</option>
                   <option value="01000">2등급</option>
@@ -41,8 +41,8 @@
                   <option value="00001">5등급</option>
                 </select>
               </th>
-              <th scope="col">
-                <label for="supply">&nbsp&nbsp수급등급</label>
+              <th scope="col" style="padding: .75rem 1.2rem;">
+                <label for="supply">수급등급</label>
                 <select id="supply" name="supply" class="form-control" style="display: block; width: 35%;">
                   <option value="10000">1등급</option>
                   <option value="01000">2등급</option>
@@ -51,8 +51,8 @@
                   <option value="00001">5등급</option>
                 </select>
               </th>
-              <th scope="col">
-                <label for="performance">&nbsp&nbsp실적등급</label>
+              <th scope="col" style="padding: .75rem 1.2rem;">
+                <label for="performance">실적등급</label>
                 <select id="performance" name="performance" class="form-control" style="display: block; width: 35%;">
                   <option value="10000">1등급</option>
                   <option value="01000">2등급</option>
@@ -61,8 +61,8 @@
                   <option value="00001">5등급</option>
                 </select>
               </th>
-              <th scope="col">
-                <label for="value">&nbsp&nbsp현재가치</label>
+              <th scope="col" style="padding: .75rem 1.2rem;">
+                <label for="value">현재가치</label>
                 <select id="value" name="value" class="form-control" style="display: block; width: 35%;">
                   <option value="10000">1등급</option>
                   <option value="01000">2등급</option>
@@ -71,8 +71,6 @@
                   <option value="00001">5등급</option>
                 </select>
               </th>
-              <!--<th style="width: 3%;">-->
-              <!--</th>-->
             </tr>
           </thead>
         </table>
