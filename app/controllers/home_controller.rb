@@ -4,35 +4,31 @@ class HomeController < ApplicationController
 
   def charts
     @urlparam = request.query_parameters['name']
-    
-    puts @urlparam
+
   end
   
   def weekcharts
     @urlparam = request.query_parameters['name']
-    
-    puts @urlparam
   end
   
   def monthcharts
     @urlparam = request.query_parameters['name']
-    
-    puts @urlparam
   end
 
   def tables
   end
   
   def c1charts
+    @urlparam = request.query_parameters['name']
   end
   
   def giftcharts
+    @urlparam = request.query_parameters['name']
   end
   
   def goldcharts
     @urlparam = request.query_parameters['name']
-    
-    puts @urlparam
+
   end
   
   def foreignprice
