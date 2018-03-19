@@ -27,9 +27,10 @@
       <i class="fa fa-area-chart"></i> C1차트</div>
     <div class="card-body">
       <div class="table" id="chart">
-        <button type="button" class="btn btn-danger" style="width:30%; font-size:15px;"disabled>고&nbsp&nbsp&nbsp</br>고&nbsp&nbsp&nbsp</button>
-        <button type="button" class="btn btn-warning" style="width:30%; font-size:15px;" disabled>C1&nbsp&nbsp&nbsp</br>C2&nbsp&nbsp&nbsp</button>
-        <button type="button" class="btn btn-primary" style="width:30%; font-size:15px;" disabled>저&nbsp&nbsp&nbsp</br>저&nbsp&nbsp&nbsp</button>
+        <button type="button" class="btn btn-danger" style="width:23%; font-size:15px;"disabled>고</button>
+        <button type="button" class="btn btn-warning" style="width:23%; font-size:15px;" disabled>C1</button>
+        <button type="button" class="btn btn-primary" style="width:23%; font-size:15px;" disabled>저</button>
+        <button type="button" class="btn btn-dark" style="width:23%; font-size:15px;" disabled>세력지수</button>
         </br></br>
     </div>
   </div>
@@ -37,8 +38,12 @@
 </div>
 <script>
   var height = $(window).height()*0.888;
+  var ctest;
+
   $(document).ready(function() {
-  setInterval(function () {
+  ctest = setInterval(ajaxtable, 5000);
+  });
+  function ajaxtable(){
     $.ajax({
       url: "http://61.72.187.6/phps/c1c2",
       type: "GET",
@@ -47,13 +52,18 @@
       success: function(data) {
         var json_data = '';
         $.each(data, function(key, value){
-          json_data += '<button type="button" class="btn btn-danger" style="width:33%; font-size:15px;"disabled>'+'고&nbsp&nbsp&nbsp'+value.dayc1high+'</br>'+'고&nbsp&nbsp&nbsp'+value.dayc2high+'</button>';
-          json_data += '<button type="button" class="btn btn-warning" style="width:33%; font-size:15px;" disabled>'+value.c1+'&nbsp&nbsp&nbsp'+value.c1high+'</br>'+'C2&nbsp&nbsp&nbsp'+value.c2high+'</button>';
-          json_data += '<button type="button" class="btn btn-primary" style="width:33%; font-size:15px;" disabled>'+'저&nbsp&nbsp&nbsp'+value.dayc1low+'</br>'+'저&nbsp&nbsp&nbsp'+value.dayc2low+'</button>';
+          json_data += '<button type="button" class="btn btn-danger" style="width:25%; font-size:15px;"disabled>'+'고&nbsp&nbsp&nbsp'+value.dayc1high+'</button>';
+          json_data += '<button type="button" class="btn btn-warning" style="width:25%; font-size:15px;" disabled>'+value.c1+'&nbsp&nbsp&nbsp'+value.c1high+'</button>';
+          json_data += '<button type="button" class="btn btn-primary" style="width:25%; font-size:15px;" disabled>'+'저&nbsp&nbsp&nbsp'+value.dayc1low+'</button>';
+          json_data += '<button type="button" class="btn btn-dark" style="width:25%; font-size:15px;" disabled>'+'세력지수&nbsp&nbsp&nbsp'+value.power+'</button>';
         });
         $('#chart').html(json_data);
       }
     });
-  }, 5000);
-});
+  }
+  $(document).ready(function(){
+    $('input[name=buttons]').change(function() {
+      clearInterval(ctest);
+    });
+  });
 </script>

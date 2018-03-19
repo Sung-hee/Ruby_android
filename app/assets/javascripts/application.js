@@ -19,5 +19,3 @@
 //= require bootstrap.bundle.min
 //= require jquery.easing.min
 //= require sb-admin.min
-//= require sb-admin-datatables.min
-//= require sb-admin-charts.min
