@@ -15,7 +15,7 @@
         <input class="form-control" type="text" name="name" placeholder="종목을 검색해주세요" style="float: right"/>
         <span class="input-group-append">
           <button class="btn btn-primary" type="button">
-            <i class="fa fa-search"></i>
+            <label></label>
           </button>
         </span>
       </div>
@@ -77,7 +77,7 @@
       success: function(data){
         var json_data = '';
         $.each(data, function(key, value){
-          json_data += '<i class="fa fa-area-chart">'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</i>';
+          json_data += '<label>'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</label>';
         });
         $('#charts').html(json_data);
       }

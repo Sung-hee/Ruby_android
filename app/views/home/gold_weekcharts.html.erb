@@ -79,7 +79,7 @@
       success: function(data){
         var json_data = '';
         $.each(data, function(key, value){
-          json_data += '<i class="fa fa-area-chart">'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</i>';
+          json_data += '<label">'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</label>';
         });
         $('#charts').html(json_data);
       }

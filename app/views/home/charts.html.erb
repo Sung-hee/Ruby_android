@@ -1,3 +1,5 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="http://61.72.187.6/script/javascript/highstock.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
@@ -7,7 +9,17 @@
 <script src="http://61.72.187.6/script/indicators/indicators30.js"></script>
 <script src="http://61.72.187.6/script/indicators/indicators60.js"></script>
 <script src="http://61.72.187.6/script/charts/daychart.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
+<script src="./table/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/3.2.4/js/dataTables.fixedColumns.min.js"></script>
+<link rel="stylesheet" href="./css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.4/css/fixedColumns.dataTables.min.css">
+<link rel="stylesheet" href="./css/style.css">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    
 <div class="content-wrapper">
   <div class="container-fluid">
     <form class="form-inline my-2 my-lg-0 mr-lg-2" action="/home/charts" method="get" style="float: right;">
@@ -15,7 +27,7 @@
         <input class="form-control" type="text" name="name" placeholder="종목을 검색해주세요" style="float: right"/>
         <span class="input-group-append">
           <button class="btn btn-primary" type="button">
-            <i class="fa fa-search"></i>
+            <label></label>
           </button>
         </span>
       </div>
@@ -42,6 +54,22 @@
         <div id="container" style="width:100%; height: 100%; min-width: 100%; margin:0;">
       </div>
     </div>
+    <div class="card mb-10">
+      <div class="card-header">
+        <label>뉴스/공시</label>
+      </div>
+    </div>
+      <div class="table-responsive">
+        <table class="table" id="stock_table" width="100%; margin:0;">
+          <thead>
+            <tr>
+              <th scope="col">제목</th>
+              <th scope="col">정보제공</th>
+              <th scope="col">날짜</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
   </div>
 </div>
 
@@ -74,11 +102,46 @@
       success: function(data){
         var json_data = '';
         $.each(data, function(key, value){
-          json_data += '<i class="fa fa-area-chart">'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</i>';
+          json_data += '<label>'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</label>';
         });
         $('#charts').html(json_data);
       }
     });
   }
+  
+var url = 'https://charttest-sungheeek.c9users.io/news.json?name=005930';
+
+var getParam = function(key){
+    var _parammap = {};
+    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+        function decode(s) {
+            return decodeURIComponent(s.split("+").join(" "));
+        }
+
+        _parammap[decode(arguments[1])] = decode(arguments[2]);
+    });
+
+    return _parammap[key];
+};
+
+var companycode = getParam("name");
+
+
+$(document).ready(function(){
+  $.getJSON(url + companycode, function(data){
+    var json_data = '';
+
+    json_data += '<tbody>'
+    $.each(data, function(key, value){
+      json_data += '<tr></tr>';
+      json_data += '<td><a href="http://m.stock.naver.com/item/main.nhn#/stocks/005930/news/0003248093/office/011">'+value.title+'</a></td>';
+      json_data += '<td>'+value.press+'</td>';
+      json_data += '<td>'+value.wdate+'</td>';
+      json_data += '</tr>';
+    });
+    json_data += '</tbody>'
+    $('#stock_table').append(json_data);
+  });
+});
 </script>
 
