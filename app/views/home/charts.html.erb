@@ -69,7 +69,7 @@
           </thead>
         </table>
       </div>
-      </div>
+    </div>
   </div>
 </div>
 
@@ -108,40 +108,5 @@
       }
     });
   }
-  
-  var url = 'https://charttest-sungheeek.c9users.io/news.json?name=005930';
-  
-  var getParam = function(key){
-      var _parammap = {};
-      document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
-          function decode(s) {
-              return decodeURIComponent(s.split("+").join(" "));
-          }
-  
-          _parammap[decode(arguments[1])] = decode(arguments[2]);
-      });
-  
-      return _parammap[key];
-  };
-  
-  var companycode = getParam("name");
-  
-  
-  $(document).ready(function(){
-    $.getJSON(url + companycode, function(data){
-      var json_data = '';
-  
-      json_data += '<tbody>'
-      $.each(data, function(key, value){
-        json_data += '<tr>';
-        json_data += '<td><a href="http://m.stock.naver.com/item/main.nhn#/stocks/005930/news/0003248093/office/011">'+value.title+'</a></td>';
-        json_data += '<td>'+value.press+'</td>';
-        json_data += '<td>'+value.wdate+'</td>';
-        json_data += '</tr>';
-      });
-      json_data += '</tbody>'
-      $('#stock_table').append(json_data);
-    });
-  });
 </script>
 
