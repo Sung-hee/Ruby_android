@@ -1,16 +1,13 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="http://61.72.187.6/script/javascript/highstock.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-<script src="http://61.72.187.6/script/indicators/indicators.js"></script>
-<script src="http://61.72.187.6/script/indicators/indicators10.js"></script>
-<script src="http://61.72.187.6/script/indicators/indicators15.js"></script>
-<script src="http://61.72.187.6/script/indicators/indicators30.js"></script>
-<script src="http://61.72.187.6/script/indicators/indicators60.js"></script>
-<script src="http://61.72.187.6/script/charts/daychart.js"></script>
+<script src="http://61.72.187.6/script/indicators/Hegg12.js"></script>
+<script src="http://61.72.187.6/script/indicators/Legg12.js"></script>
+<script src="http://61.72.187.6/script/charts/egg_monthchart.js"></script>
 
 <div class="content-wrapper">
   <div class="container-fluid">
-    <form class="form-inline my-2 my-lg-0 mr-lg-2" action="/home/charts" method="get" style="float: right;">
+    <form class="form-inline my-2 my-lg-0 mr-lg-2" action="/home/goldcharts" method="get" style="float: right;">
       <div class="input-group" >
         <input class="form-control" type="text" name="name" placeholder="종목을 검색해주세요" style="float: right"/>
         <span class="input-group-append">
@@ -22,17 +19,24 @@
     </form>
     <div class="btn-group" role="group" style="width:100%; margin: 0;">
       <div class="btn-group btn-group-toggle" data-toggle="radio" style="width:100%;">
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/charts?name=<%=@urlparam%>';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/gold_daycharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 일
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/weekcharts?name=<%=@urlparam%>';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/gold_weekcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 주
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/monthcharts?name=<%=@urlparam%>';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/gold_monthcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 월
+        </label>
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/c1charts?name=<%=@urlparam%>';">
+          <input type="radio" name="buttons" style="pointer-events:none"/> C1고저차트
+        </label>
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/giftcharts?name=<%=@urlparam%>';">
+          <input type="radio" name="buttons" style="pointer-events:none"/> 선물차트
         </label>
       </div>
     </div>
+    
     <!-- Area Chart Example-->
     <div class="card mb-10">
       <div class="card-header" id="charts">
@@ -52,6 +56,7 @@
           function decode(s) {
               return decodeURIComponent(s.split("+").join(" "));
           }
+  
           _parammap[decode(arguments[1])] = decode(arguments[2]);
       });
   
@@ -81,4 +86,3 @@
     });
   }
 </script>
-

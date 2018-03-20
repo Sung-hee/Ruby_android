@@ -15,13 +15,13 @@
   <div class="container-fluid">
     <div class="btn-group" role="group" style="width:100%; margin: 0;">
       <div class="btn-group btn-group-toggle" data-toggle="radio" style="width:100%;">
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/charts?name=<%=@urlparam%>';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/gold_daycharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 일
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/weekcharts?name=<%=@urlparam%>';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/gold_weekcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 주
         </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/monthcharts?name=<%=@urlparam%>';">
+        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/gold_monthcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 월
         </label>
         <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/c1charts?name=<%=@urlparam%>';">
@@ -29,9 +29,6 @@
         </label>
         <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/giftcharts?name=<%=@urlparam%>';">
           <input type="radio" name="buttons" style="pointer-events:none"/> 선물차트
-        </label>
-        <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/goldcharts?name=<%=@urlparam%>';">
-          <input type="radio" name="buttons" style="pointer-events:none"/> 황금차트
         </label>
       </div>
     </div>

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'home/tables' => 'home#tables'
   get 'home/c1charts' => 'home#c1charts'
   get 'home/giftcharts' => 'home#giftcharts'
-  get 'home/goldcharts' => 'home#goldcharts'
+  get 'home/gold_daycharts' => 'home#gold_daycharts'
+  get 'home/gold_weekcharts' => 'home#gold_weekcharts'
+  get 'home/gold_monthcharts' => 'home#gold_monthcharts'
   get 'home/foreignprice' => 'home#foreignprice'
 
   # The priority is based upon order of creation: first created -> highest priority.

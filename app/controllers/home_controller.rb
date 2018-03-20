@@ -26,7 +26,17 @@ class HomeController < ApplicationController
     @urlparam = request.query_parameters['name']
   end
   
-  def goldcharts
+  def gold_daycharts
+    @urlparam = request.query_parameters['name']
+
+  end
+  
+  def gold_weekcharts
+    @urlparam = request.query_parameters['name']
+
+  end
+
+  def gold_monthcharts
     @urlparam = request.query_parameters['name']
 
   end
