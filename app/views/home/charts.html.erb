@@ -12,12 +12,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-<script src="./table/jquery.dataTables.js"></script>
+<script src="http://61.72.187.6/script/table/jquery.dataTables.js"></script>
 <script src="https://cdn.datatables.net/fixedcolumns/3.2.4/js/dataTables.fixedColumns.min.js"></script>
-<link rel="stylesheet" href="./css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="http://61.72.187.6/script/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.4/css/fixedColumns.dataTables.min.css">
-<link rel="stylesheet" href="./css/style.css">
-
+<link rel="stylesheet" href="http://61.72.187.6/script/css/style.css">
+<script src="http://61.72.187.6/script/table/newstable.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
     
 <div class="content-wrapper">
@@ -109,39 +109,39 @@
     });
   }
   
-var url = 'https://charttest-sungheeek.c9users.io/news.json?name=005930';
-
-var getParam = function(key){
-    var _parammap = {};
-    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
-        function decode(s) {
-            return decodeURIComponent(s.split("+").join(" "));
-        }
-
-        _parammap[decode(arguments[1])] = decode(arguments[2]);
+  var url = 'https://charttest-sungheeek.c9users.io/news.json?name=005930';
+  
+  var getParam = function(key){
+      var _parammap = {};
+      document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+          function decode(s) {
+              return decodeURIComponent(s.split("+").join(" "));
+          }
+  
+          _parammap[decode(arguments[1])] = decode(arguments[2]);
+      });
+  
+      return _parammap[key];
+  };
+  
+  var companycode = getParam("name");
+  
+  
+  $(document).ready(function(){
+    $.getJSON(url + companycode, function(data){
+      var json_data = '';
+  
+      json_data += '<tbody>'
+      $.each(data, function(key, value){
+        json_data += '<tr>';
+        json_data += '<td><a href="http://m.stock.naver.com/item/main.nhn#/stocks/005930/news/0003248093/office/011">'+value.title+'</a></td>';
+        json_data += '<td>'+value.press+'</td>';
+        json_data += '<td>'+value.wdate+'</td>';
+        json_data += '</tr>';
+      });
+      json_data += '</tbody>'
+      $('#stock_table').append(json_data);
     });
-
-    return _parammap[key];
-};
-
-var companycode = getParam("name");
-
-
-$(document).ready(function(){
-  $.getJSON(url + companycode, function(data){
-    var json_data = '';
-
-    json_data += '<tbody>'
-    $.each(data, function(key, value){
-      json_data += '<tr></tr>';
-      json_data += '<td><a href="http://m.stock.naver.com/item/main.nhn#/stocks/005930/news/0003248093/office/011">'+value.title+'</a></td>';
-      json_data += '<td>'+value.press+'</td>';
-      json_data += '<td>'+value.wdate+'</td>';
-      json_data += '</tr>';
-    });
-    json_data += '</tbody>'
-    $('#stock_table').append(json_data);
   });
-});
 </script>
 

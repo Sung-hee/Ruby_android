@@ -1,458 +1,149 @@
-<div class="content-wrapper">
-  <table class="table" id="table_id" style="height:100%;">
-    <thead>
-      <tr style="background-color:#F0F0F0">
-        <th>종목</th>
-        <th>월물</th>
-        <th>현재가</th>
-        <th>고가</th>
-        <th>저가</th>
-        <th>변동</th>
-        <th>변동 %</th>
-        <th>시간</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>다우존스</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>S%P 500</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>나스닥 100</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-    </tbody>
-    <thead>
-      <tr style="background-color:#F0F0F0">
-        <th>지수</th>
-        <th>-</th>
-        <th>현재가</th>
-        <th>고가</th>
-        <th>저가</th>
-        <th>변동</th>
-        <th>변동 %</th>
-        <th>시간</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>닛케이</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>상하이종합</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-    </tbody>
-    <thead>
-      <tr style="background-color:#F0F0F0">
-        <th>상품</th>
-        <th>월물</th>
-        <th>종가</th>
-        <th>고가</th>
-        <th>저가</th>
-        <th>변동</th>
-        <th>변동 %</th>
-        <th>시간</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>금</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>WTI유</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-    </tbody>
-    <thead>
-      <tr style="background-color:#F0F0F0">
-        <th>종목</th>
-        <th>종목</th>
-        <th>종가</th>
-        <th>고가</th>
-        <th>저가</th>
-        <th>변동</th>
-        <th>변동 %</th>
-        <th>시간</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>달러/원</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<script src="http://61.72.187.6/script/table/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/3.2.4/js/dataTables.fixedColumns.min.js"></script>
+<link rel="stylesheet" href="http://61.72.187.6/script/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.4/css/fixedColumns.dataTables.min.css">
+<link rel="stylesheet" href="http://61.72.187.6/script/css/style.css">
+<script src="http://61.72.187.6/script/table/foreignprice.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 
-<script>
-  $(document).ready(function(){
-    setInterval(function (){
-      $.ajax({
-        url: "http://61.72.187.6/phps/forNowJ",
-        type: "GET",
-        dataType: "json",
-        async: false,
-        success: function(data){
-          var json_data = '';
-          
-          // 선물지수
-          json_data += '<thead>';
-          json_data += '<tr style="background-color:#F0F0F0">'
-          json_data += '<th>종목</th>';
-          json_data += '<th>월물</th>';
-          json_data += '<th>현재가</th>';
-          json_data += '<th>고가</th>';
-          json_data += '<th>저가</th>';
-          json_data += '<th>변동</th>';
-          json_data += '<th>변동 %</th>';
-          json_data += '<th>시간</th>';
-          json_data += '</tr>'
-          json_data += '</thead>';
-          
-          json_data += '<tbdoy>';
-          $.each(data.dji, function(key, value){
-            json_data += '<tr>'
-            json_data += '<td>'+value.title+'</td>';
-            json_data += '<td>'+value.date+'</td>';
-            json_data += '<td>'+value.current+'</td>';
-            json_data += '<td>'+value.high+'</td>';
-            json_data += '<td>'+value.low+'</td>';
-            if(value.variance.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance+'</td>';              
-            }
-            else if(value.variance.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance+'</td>';
-            }
-            if(value.variance_per.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
-            }
-            else if(value.variance_per.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance_per+'</td>';
-            }
-            json_data += '<td>'+value.hours+'</td>';
-            json_data += '</tr>';
-          });
-          json_data += '</tbdoy>';
-          
-          json_data += '<tbdoy>';
-          $.each(data.sp500, function(key, value){
-            json_data += '<tr>'
-            json_data += '<td>'+value.title+'</td>';
-            json_data += '<td>'+value.date+'</td>';
-            json_data += '<td>'+value.current+'</td>';
-            json_data += '<td>'+value.high+'</td>';
-            json_data += '<td>'+value.low+'</td>';
-            if(value.variance.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance+'</td>';              
-            }
-            else if(value.variance.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance+'</td>';
-            }
-            if(value.variance_per.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
-            }
-            else if(value.variance_per.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance_per+'</td>';
-            }
-            json_data += '<td>'+value.hours+'</td>';
-            json_data += '</tr>';
-          });
-          json_data += '</tbdoy>';
-          
-          json_data += '<tbdoy>';
-          $.each(data.nasdaq, function(key, value){
-            json_data += '<tr>'
-            json_data += '<td>'+value.title+'</td>';
-            json_data += '<td>'+value.date+'</td>';
-            json_data += '<td>'+value.current+'</td>';
-            json_data += '<td>'+value.high+'</td>';
-            json_data += '<td>'+value.low+'</td>';
-            if(value.variance.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance+'</td>';              
-            }
-            else if(value.variance.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance+'</td>';
-            }
-            if(value.variance_per.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
-            }
-            else if(value.variance_per.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance_per+'</td>';
-            }
-            json_data += '<td>'+value.hours+'</td>';
-            json_data += '</tr>';
-          });
-          json_data += '</tbdoy>';
-          
-          // 세계주요지수
-          json_data += '<thead>';
-          json_data += '<tr style="background-color:#F0F0F0">'
-          json_data += '<th>지수</th>';
-          json_data += '<th>-</th>';
-          json_data += '<th>현재가</th>';
-          json_data += '<th>고가</th>';
-          json_data += '<th>저가</th>';
-          json_data += '<th>변동</th>';
-          json_data += '<th>변동 %</th>';
-          json_data += '<th>시간</th>';
-          json_data += '</tr>'
-          json_data += '</thead>';
-          
-          json_data += '<tbdoy>';
-          $.each(data.nikkei, function(key, value){
-            json_data += '<tr>'
-            json_data += '<td>'+value.title+'</td>';
-            json_data += '<td>-</td>';
-            json_data += '<td>'+value.current+'</td>';
-            json_data += '<td>'+value.high+'</td>';
-            json_data += '<td>'+value.low+'</td>';
-            if(value.variance.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance+'</td>';              
-            }
-            else if(value.variance.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance+'</td>';
-            }
-            if(value.variance_per.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
-            }
-            else if(value.variance_per.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance_per+'</td>';
-            }
-            json_data += '<td>'+value.hours+'</td>';
-            json_data += '</tr>';
-          });
-          json_data += '</tbdoy>';
-          
-          json_data += '<tbdoy>';
-          $.each(data.ssec, function(key, value){
-            json_data += '<tr>'
-            json_data += '<td>'+value.title+'</td>';
-            json_data += '<td>-</td>';
-            json_data += '<td>'+value.current+'</td>';
-            json_data += '<td>'+value.high+'</td>';
-            json_data += '<td>'+value.low+'</td>';
-            if(value.variance.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance+'</td>';              
-            }
-            else if(value.variance.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance+'</td>';
-            }
-            if(value.variance_per.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
-            }
-            else if(value.variance_per.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance_per+'</td>';
-            }
-            json_data += '<td>'+value.hours+'</td>';
-            json_data += '</tr>';
-          });
-          json_data += '<thead>';
-          json_data += '<tr style="background-color:#F0F0F0">'
-          json_data += '<th>상품</th>';
-          json_data += '<th>월물</th>';
-          json_data += '<th>종가</th>';
-          json_data += '<th>고가</th>';
-          json_data += '<th>저가</th>';
-          json_data += '<th>변동</th>';
-          json_data += '<th>변동 %</th>';
-          json_data += '<th>시간</th>';
-          json_data += '</tr>'
-          json_data += '</thead>';
-          
-          // 실시간 상품
-          json_data += '</tbdoy>';
-            $.each(data.gold, function(key, value){
-            json_data += '<tr>'
-            json_data += '<td>'+value.title+'</td>';
-            json_data += '<td>'+value.date+'</td>';
-            json_data += '<td>'+value.current+'</td>';
-            json_data += '<td>'+value.high+'</td>';
-            json_data += '<td>'+value.low+'</td>';
-            if(value.variance.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance+'</td>';              
-            }
-            else if(value.variance.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance+'</td>';
-            }
-            if(value.variance_per.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
-            }
-            else if(value.variance_per.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance_per+'</td>';
-            }
-            json_data += '<td>'+value.hours+'</td>';
-            json_data += '</tr>';
-          });
-          json_data += '</tbdoy>';
-          
-          json_data += '</tbdoy>';
-            $.each(data.wti, function(key, value){
-            json_data += '<tr>'
-            json_data += '<td>'+value.title+'</td>';
-            json_data += '<td>'+value.date+'</td>';
-            json_data += '<td>'+value.current+'</td>';
-            json_data += '<td>'+value.high+'</td>';
-            json_data += '<td>'+value.low+'</td>';
-            if(value.variance.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance+'</td>';              
-            }
-            else if(value.variance.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance+'</td>';
-            }
-            if(value.variance_per.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
-            }
-            else if(value.variance_per.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance_per+'</td>';
-            }
-            json_data += '<td>'+value.hours+'</td>';
-            json_data += '</tr>';
-          });
-          json_data += '</tbdoy>';
-          
-          json_data += '<thead>';
-          json_data += '<tr style="background-color:#F0F0F0">'
-          json_data += '<th>종목</th>';
-          json_data += '<th>종목</th>';
-          json_data += '<th>현재가</th>';
-          json_data += '<th>고가</th>';
-          json_data += '<th>저가</th>';
-          json_data += '<th>변동</th>';
-          json_data += '<th>변동 %</th>';
-          json_data += '<th>시간</th>';
-          json_data += '</tr>'
-          json_data += '</thead>';
-          // 달러
-          json_data += '</tbdoy>';
-            $.each(data.usdkrw, function(key, value){
-            json_data += '<tr>'
-            json_data += '<td>'+value.title+'</td>';
-            json_data += '<td>'+value.date+'</td>';
-            json_data += '<td>'+value.current+'</td>';
-            json_data += '<td>'+value.high+'</td>';
-            json_data += '<td>'+value.low+'</td>';
-            if(value.variance.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance+'</td>';              
-            }
-            else if(value.variance.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance+'</td>';
-            }
-            if(value.variance_per.charAt(0) == '+'){
-              json_data += '<td style="color:red">'+value.variance_per+'</td>';              
-            }
-            else if(value.variance_per.charAt(0) == '-'){
-              json_data += '<td style="color:blue">'+value.variance_per+'</td>';
-            }
-            else {
-              json_data += '<td>'+value.variance_per+'</td>';
-            }
-            json_data += '<td>'+value.hours+'</td>';
-            json_data += '</tr>';
-          });
-          json_data += '</tbdoy>';
-          $('#table_id').html(json_data);
-        }
-      });
-    }, 1000)
-  });
-</script>
+
+<div class="content-wrapper">
+  <table class="table" id="stock_table" width="100%; margin:0;">
+    <thead>
+      <tr style="background-color:#F0F0F0; padding:10px 18px">
+        <th style="padding:10px 18px">종목</th>
+        <th style="padding:10px 18px">월물</th>
+        <th style="padding:10px 18px">현재가</th>
+        <th style="padding:10px 18px">고가</th>
+        <th style="padding:10px 18px">저가</th>
+        <th style="padding:10px 18px">변동</th>
+        <th style="padding:10px 18px">변동 %</th>
+        <th style="padding:10px 18px">시간</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px 10px">다우존스</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px">S%P 500</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px">나스닥 100</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr style="background-color:#F0F0F0">
+        <th style="padding:10px 18px">지수</th>
+        <th style="padding:10px 18px">-</th>
+        <th style="padding:10px 18px">현재가</th>
+        <th style="padding:10px 18px">고가</th>
+        <th style="padding:10px 18px">저가</th>
+        <th style="padding:10px 18px">변동</th>
+        <th style="padding:10px 18px">변동 %</th>
+        <th style="padding:10px 18px">시간</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px 10px">닛케이</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px">상하이종합</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr style="background-color:#F0F0F0">
+        <th style="padding:10px 18px">상품</th>
+        <th style="padding:10px 18px">월물</th>
+        <th style="padding:10px 18px">종가</th>
+        <th style="padding:10px 18px">고가</th>
+        <th style="padding:10px 18px">저가</th>
+        <th style="padding:10px 18px">변동</th>
+        <th style="padding:10px 18px">변동 %</th>
+        <th style="padding:10px 18px">시간</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px 10px">금</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px">WTI유</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr style="background-color:#F0F0F0">
+        <th style="padding:10px 18px">종목</th>
+        <th style="padding:10px 18px">종목</th>
+        <th style="padding:10px 18px">종가</th>
+        <th style="padding:10px 18px">고가</th>
+        <th style="padding:10px 18px">저가</th>
+        <th style="padding:10px 18px">변동</th>
+        <th style="padding:10px 18px">변동 %</th>
+        <th style="padding:10px 18px">시간</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px 10px">달러/원</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+        <td style="padding:8px 10px">-</td>
+      </tr>
+  </tbody>
+</table>
+</div>
