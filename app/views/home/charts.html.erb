@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.4/css/fixedColumns.dataTables.min.css">
 <link rel="stylesheet" href="http://61.72.187.6/script/css/style.css">
 <script src="http://61.72.187.6/script/table/newstable.js"></script>
+<script src="http://61.72.187.6/script/table/companydata.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
     
 <div class="content-wrapper">
@@ -53,21 +54,30 @@
       <div class="card-body">
         <div id="container" style="width:100%; height: 100%; min-width: 100%; margin:0;"></div>
       </div>
-      <div class="card mb-10">
-        <div class="card-header">
-          <label>뉴스/공시</label>
-        </div>
+    </div>
+    <div class="card mb-10">
+      <div class="card-header">
+        <label>뉴스/공시</label>
       </div>
-      <div class="table-responsive">
-        <table class="table" id="stock_table" width="100%; margin:0;">
-          <thead>
-            <tr>
-              <th scope="col">제목</th>
-              <th scope="col">정보제공</th>
-              <th scope="col">날짜</th>
-            </tr>
-          </thead>
-        </table>
+    </div>
+    <div class="table-responsive">
+      <table class="table" id="stock_table" width="100%; margin:0;">
+        <thead>
+          <tr>
+            <th scope="col">제목</th>
+            <th scope="col">정보제공</th>
+            <th scope="col">날짜</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="card mb-10">
+      <div class="card-header">
+        <label>기업정보</label>
+      </div>
+      <div class="card-body">
+        <table class="table" id=company_data>
+        </table>        
       </div>
     </div>
   </div>

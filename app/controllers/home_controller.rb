@@ -42,6 +42,8 @@ class HomeController < ApplicationController
   end
   
   def foreignprice
-    
+  end
+  
+  def thema
   end
 end

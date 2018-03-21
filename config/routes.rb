@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'home/gold_weekcharts' => 'home#gold_weekcharts'
   get 'home/gold_monthcharts' => 'home#gold_monthcharts'
   get 'home/foreignprice' => 'home#foreignprice'
+  get 'home/thema' => 'home#thema'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
