@@ -17,7 +17,48 @@
 <link rel="stylesheet" href="http://61.72.187.6/script/css/style.css">
 <script src="http://61.72.187.6/script/table/newstable.js"></script>
 <script src="http://61.72.187.6/script/table/companydata.js"></script>
+<script src="http://61.72.187.6/script/star-rating/star-rating.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    
+<style>
+  .stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  }
+
+  .stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+  }
+
+  .stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  }
+
+  .stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+  }
+
+  .attribution {
+  font-size: 12px;
+  color: #444;
+  text-decoration: none;
+  text-align: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: -1;
+  }
+  .attribution:hover {
+  color: #1fa67a;
+  }  
+</style>    
     
 <div class="content-wrapper">
   <div class="container-fluid">
@@ -53,6 +94,18 @@
         <div id="container" style="width:100%; height: 100%; min-width: 100%; margin:0;"></div>
       </div>
     </div>
+    <div class="card mb-3" >
+      <div class="card-header" id="company_score">
+        <label class="hotel_a">황금알점수&nbsp&nbsp&nbsp
+          <div class="stars-outer">
+            <div class="stars-inner">
+            </div>
+          </div>  
+        </label>
+      </div>
+      <div class="card-body">
+      </div>
+    </div>
     <div class="card mb-3">
       <div class="card-header">
         <label>기업정보</label>
@@ -76,6 +129,7 @@
             </tr>
           </thead>
         </table>
+        <iframe class="newsIframe" name="test" width="100%" height="350" style="display:none;"></iframe>
       </div>
     </div>
   </div>
