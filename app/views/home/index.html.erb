@@ -1,6 +1,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="http://61.72.187.6/script/index/koreastock.js"></script>
 <script src="http://61.72.187.6/script/index/allnews.js"></script>
+	<script src="http://61.72.187.6/script/index/indexTheme.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://61.72.187.6/script/table/jquery.dataTables.js"></script>
@@ -34,18 +35,17 @@
       </div>
       <div class="col-xl-3 col-sm-6 mb-3">
         <div class="card text-white bg-primary o-hidden h-100">
-          <div class="card-body">
-            <div class="card-body-icon">
-              <i class="fa fa-fw fa-list"></i>
-            </div>
-            <div class="mr-5">오늘의 HOT 테마</div>
-          </div>
-          <a class="card-footer text-white clearfix small z-1" href="/home/theme">
-            <span class="float-left">더보기</span>
-            <span class="float-right">
-              <i class="fa fa-angle-right"></i>
-            </span>
-          </a>
+					<div class="card-header">오늘의 <span style="font-weight: bold;">HOT</span> 테마</div>
+					<div id="index-theme-list" class="card-body" style="height:9rem; overflow:hidden; overflow-y:scroll;">
+						<div class="list-group" role="tablist">-</div>
+						<div class="list-group" role="tablist">-</div>
+					</div>
+					<a class="card-footer text-white clearfix small z-1" href="/home/theme">
+						<span class="float-left">더보기</span>
+						<span class="float-right">
+							<i class="fa fa-angle-right"></i>
+						</span>
+					</a>
         </div>
       </div>
       <div class="col-xl-3 col-sm-6 mb-3">
@@ -99,3 +99,4 @@
     </div>
   </div>
 </div>
+
