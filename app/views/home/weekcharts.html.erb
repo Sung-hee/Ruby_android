@@ -1,3 +1,5 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="http://61.72.187.6/script/javascript/highstock.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
@@ -7,10 +9,21 @@
 <script src="http://61.72.187.6/script/indicators/indicators30.js"></script>
 <script src="http://61.72.187.6/script/indicators/indicators60.js"></script>
 <script src="http://61.72.187.6/script/charts/weekchart.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
+<script src="http://61.72.187.6/script/table/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/3.2.4/js/dataTables.fixedColumns.min.js"></script>
+<link rel="stylesheet" href="http://61.72.187.6/script/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.4/css/fixedColumns.dataTables.min.css">
+<link rel="stylesheet" href="http://61.72.187.6/script/css/style.css">
+<script src="http://61.72.187.6/script/table/newstable.js"></script>
+<script src="http://61.72.187.6/script/table/companydata.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    
 <div class="content-wrapper">
   <div class="container-fluid">
-    <form class="form-inline my-2 my-lg-0 mr-lg-2" action="/home/weekcharts" method="get" style="float: right;">
+    <form class="form-inline my-2 my-lg-0 mr-lg-2" action="/home/charts" method="get" style="float: right;">
       <div class="input-group" >
         <input class="form-control" type="text" name="name" placeholder="종목을 검색해주세요" style="float: right"/>
         <span class="input-group-append">
@@ -20,7 +33,6 @@
         </span>
       </div>
     </form>
-    
     <div class="btn-group" role="group" style="width:100%; margin: 0;">
       <div class="btn-group btn-group-toggle" data-toggle="radio" style="width:100%;">
         <label class="btn btn-secondary" style="width:100%;" onclick="window.location='/home/charts?name=<%=@urlparam%>';">
@@ -34,14 +46,38 @@
         </label>
       </div>
     </div>
-
     <!-- Area Chart Example-->
     <div class="card mb-10">
       <div class="card-header" id="charts">
         <i class="fa fa-area-chart"></i>
       </div>
       <div class="card-body">
-        <div id="container" style="width:100%; height: 100%; min-width: 100%; margin:0;">
+        <div id="container" style="width:100%; height: 100%; min-width: 100%; margin:0;"></div>
+      </div>
+    </div>
+    <div class="card mb-10">
+      <div class="card-header">
+        <label>뉴스/공시</label>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table" id="stock_table" width="100%; margin:0;">
+        <thead>
+          <tr>
+            <th scope="col">제목</th>
+            <th scope="col">정보제공</th>
+            <th scope="col">날짜</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="card mb-10">
+      <div class="card-header">
+        <label>기업정보</label>
+      </div>
+      <div class="card-body">
+        <table class="table" id=company_data>
+        </table>        
       </div>
     </div>
   </div>
@@ -49,16 +85,15 @@
 
 <script>
   var getParam = function(key){
-    var _parammap = {};
-    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
-        function decode(s) {
-            return decodeURIComponent(s.split("+").join(" "));
-        }
-
-        _parammap[decode(arguments[1])] = decode(arguments[2]);
-    });
-
-    return _parammap[key];
+      var _parammap = {};
+      document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+          function decode(s) {
+              return decodeURIComponent(s.split("+").join(" "));
+          }
+          _parammap[decode(arguments[1])] = decode(arguments[2]);
+      });
+  
+      return _parammap[key];
   };
   
   var companycode = getParam("name");
@@ -84,3 +119,4 @@
     });
   }
 </script>
+
