@@ -119,4 +119,9 @@
       }
     });
   }
+  $(document).ready(function(){
+    $('input[name=buttons]').change(function() {
+      clearInterval(ajaxdata);
+    });
+  });
 </script>
