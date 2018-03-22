@@ -46,4 +46,7 @@ class HomeController < ApplicationController
   
   def theme
   end
+  
+  def pro
+  end
 end

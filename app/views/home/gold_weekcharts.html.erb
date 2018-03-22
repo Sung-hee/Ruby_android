@@ -13,7 +13,8 @@
 <script src="http://61.72.187.6/script/table/newstable.js"></script>
 <script src="http://61.72.187.6/script/table/companydata.js"></script>
 <script src="http://61.72.187.6/script/star-rating/star-rating.js"></script>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<link rel="stylesheet" href="http://61.72.187.6/script/star-rating/progress.css">
+<link rel="stylesheet" href="http://61.72.187.6/script/star-rating/star-style.css">
 
 <style>
   .stars-outer {
@@ -105,7 +106,9 @@
           </div>  
         </label>
       </div>
-      <div class="card-body">
+      <div class="card-body" id="power_score">
+        <div class="ratingbar">
+        </div>
       </div>
     </div>
     <div class="card mb-3">
@@ -121,7 +124,7 @@
       <div class="card-header">
         <label>뉴스/공시</label>
       </div>
-      <div class="card-body table-responsive" style="height:15rem; overflow:hidden; overflow-x:scroll; overflow-y:scroll;">
+      <div class="card-body table-responsive" style="height:15rem; overflow:hidden; overflow-y:scroll; padding:0;">
         <table class="table" id="news_table">
           <thead>
             <tr>
@@ -167,7 +170,12 @@
       success: function(data){
         var json_data = '';
         $.each(data, function(key, value){
-          json_data += '<label">'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</label>';
+          if(value.semo == "▲"){
+            json_data += '<label style="color:red">'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</label>';
+          }
+          else {
+            json_data += '<label style="color:blue">'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</label>';
+          }
         });
         $('#charts').html(json_data);
       }

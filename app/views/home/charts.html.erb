@@ -122,7 +122,7 @@
       <div class="card-header">
         <label>뉴스/공시</label>
       </div>
-      <div class="card-body table-responsive" style="height:15rem; overflow:hidden; overflow-y:scroll;">
+      <div class="card-body table-responsive" style="height:15rem; overflow:hidden; overflow-y:scroll; padding:0;">
         <table class="table" id="news_table">
           <thead>
             <tr>
@@ -167,7 +167,12 @@
       success: function(data){
         var json_data = '';
         $.each(data, function(key, value){
-          json_data += '<label>'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</label>';
+          if(value.semo == "▲"){
+            json_data += '<label style="color:red">'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</label>';
+          }
+          else {
+            json_data += '<label style="color:blue">'+value.name+'('+value.code+')'+'&nbsp&nbsp&nbsp'+value.now+'원&nbsp&nbsp&nbsp'+value.semo+'&nbsp'+value.pok+'&nbsp&nbsp'+value.per+'%</label>';
+          }
         });
         $('#charts').html(json_data);
       }
