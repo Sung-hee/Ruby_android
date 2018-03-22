@@ -193,4 +193,17 @@
       clearInterval(ajaxdata);
     });
   });
+	var options = {
+			url: "http://61.72.187.6/phps/_search_popular?stx",
+
+			getValue: "value",
+
+			list: {
+				match: {
+					enabled: true
+				}
+			}
+		};
+		console.log(options);
+		$("#data-json").easyAutocomplete(options);  
 </script>

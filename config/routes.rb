@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'home/gold_monthcharts' => 'home#gold_monthcharts'
   get 'home/foreignprice' => 'home#foreignprice'
   get 'home/theme' => 'home#theme'
+  get 'home/themeStock' => 'home#themeStock'
   get 'home/pro' => 'home#pro'
 
   # The priority is based upon order of creation: first created -> highest priority.
