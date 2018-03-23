@@ -4,22 +4,24 @@
 
 <div class="container">
   <div class="content-wrapper">
-    <div id="row" class="row">
-      <div class="col-12">
-        <div class="card border-danger mb-3 text-white" style="max-width: 100%;">
-          <div class="card-header" style="background-color:#91180B">
-            오늘의 <span style="font-weight: bold;">HOT</span> 테마
+    <div class="container">
+      <div id="row" class="row">
+          <div id="hot-theme" class="col-12">
+              <div class="card border-danger mb-3 text-white" style="max-width: 100%;">
+                  <div class="card-header" style="background-color:#91180B">
+                    오늘의 <span style="font-weight: bold;">HOT</span> 테마
+                  </div>
+                  <div class="list-group" id="today-theme-list" role="tablist">
+                  </div>
+              </div>
           </div>
-          <div class="list-group" id="today-theme-list" role="tablist">
+          <div class="col-12">
+            <div class="card border-dark mb-3" style="max-width: 100%;">
+              <div class="card-header" align="center">전체 테마</div>
+              <div class="list-group" id="theme-list" role="tablist" style="overflow:hidden; overflow-y:scroll;">
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="card border-dark mb-3" style="max-width: 100%;">
-          <div class="card-header" align="center">전체 테마</div>
-          <div class="list-group" id="theme-list" role="tablist" style="height:14rem; overflow:hidden; overflow-y:scroll;">
-          </div>
-        </div>
       </div>
     </div>
   </div>
