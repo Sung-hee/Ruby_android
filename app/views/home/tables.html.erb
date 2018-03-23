@@ -14,13 +14,8 @@
       <div style="display: block; float: right;">
         <label style="float: left; margin-right: 1em">황금알점수</label>
           <div style="float: left">
-            <select id="gold" name="gold" class="form-control">
-              <option value="1">1등급</option>
-              <option value="2">2등급</option>
-              <option value="3">3등급</option>
-              <option value="4">4등급</option>
-              <option value="5">5등급</option>
-            </select>
+            <input class="form-control" id="goldS" type="number" name="goldS" placeholder="최저값을 입력하세요"></input> ~
+            <input class="form-control" id="goldE" type="number" name="goldE" placeholder="최고값을 입력하세요"></input>
           </div>
         <div style="position: absolute; visibility: collapse;">
           <input id="power" name="power" class="form-control" value="11111" style="margin: 0rem 1rem; visibility: collapse;">
@@ -53,6 +48,7 @@
           </input>
         </div>
         <input type="submit" value="검색" class="btn btn-primary" style="float: right; margin: auto;">
+        <i class="fa fa-search"></i>
       </div>
       <div class="table-responsive">
         <table class="table" id="stock_table" width="100%; margin:0;">
