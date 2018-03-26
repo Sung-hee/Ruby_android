@@ -39,7 +39,7 @@
     		vertical-align: middle;
     		content: "";
     		background: no-repeat center center;
-    		background-size: 60% 60%;
+    		background-size: 50% 50%;
     	}
     	.navbar-gold .navbar-toggler-icon {
     		background-image: url(http://61.72.187.6/images/webApp/menu.png);
@@ -47,9 +47,8 @@
     </style>
   </head>
   
-  <body class="fixed-nav sticky-footer bg-gold" id="page-top">
+  <body class="fixed-nav bg-gold" id="page-top">
     <%= render 'shared/nav' %>
     <%= yield %>
-    <%= render 'shared/footer' %>
   </body>
 </html>
