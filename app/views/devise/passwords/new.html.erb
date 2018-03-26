@@ -1,16 +1,24 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">비밀번호 찾기</div>
+        <div class="card-body">
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= devise_error_messages! %>
+          
+            <div class="field">
+              <%= f.label :이메일 %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:100%", placeholder: "이메일을 입력하세요" %>
+            </div>
+          
+            <div class="actions">
+              </br>
+              <%= f.submit "확인", class: 'btn btn-primary btn-block' %>
+            </div>
+          <% end %>
+          
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>
