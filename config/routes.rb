@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :models
   root 'home#index'
   
   get 'home/index' => 'home#index'

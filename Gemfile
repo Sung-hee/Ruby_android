@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'figaro'
