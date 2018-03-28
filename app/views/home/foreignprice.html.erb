@@ -31,6 +31,13 @@
     width: 20%;
   }
 
+  #supply_table_wrapper > div > div.DTFC_LeftWrapper > div.DTFC_LeftBodyWrapper > div > table > thead > tr {
+    height: 0!important;
+  }
+  #supply_table > thead > tr {
+    height: 0!important;
+  }
+      
   #korea_table_wrapper > div > div.DTFC_LeftWrapper > div.DTFC_LeftBodyWrapper > div > table > thead > tr {
     height: 0!important;
   }
@@ -74,6 +81,39 @@
 <div class="content-wrapper">
   <div class="container">
     <div class="table-responsive">
+      <table class="table" id="supply_table" width="100%; margin:0;">
+        <thead>
+          <tr>
+            <th>투자매매동향</th>
+            <th>개인</th>
+            <th>외국인</th>
+            <th>기관계</th>
+            <th>금융투자</th>
+            <th>투신</th>
+            <th>연기금등</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>거래소</td>
+            <td id="exchange-personal">-</td>
+            <td id="exchange-foreigner">-</td>
+            <td id="exchange-agency">-</td>
+            <td id="exchange-financial">-</td>
+            <td id="exchange-trust">-</td>
+            <td id="exchange-pensionfunds">-</td>
+          </tr>
+          <tr>
+            <td>코스닥</td>
+            <td id="kosdaq-personal">-</td>
+            <td id="kosdaq-foreigner">-</td>
+            <td id="kosdaq-agency">-</td>
+            <td id="kosdaq-financial">-</td>
+            <td id="kosdaq-trust">-</td>
+            <td id="kosdaq-pensionfunds">-</td>
+          </tr>
+        </tbody>
+      </table>
       <table class="table" id="korea_table" width="100%; margin:0;">
           <thead>
             <tr>

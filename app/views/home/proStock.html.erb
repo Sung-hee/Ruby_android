@@ -1,196 +1,57 @@
-<!DOCTYPE html>
-<html>
+<script src="http://61.72.187.6/script/pro/proStock.js"></script>
+<link rel="stylesheet" href="http://61.72.187.6/script/css/style.css">
 
-<head>
-	<title>BaobabSolution</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	 crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	 crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-	 crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	 crossorigin="anonymous">
+<style>
+	/* unvisited link */
 
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	 <script src="./table/proStockTable.js"></script>
-	 <script src="http://61.72.187.6/script/table/jquery.dataTables.js"></script>
-	 <script src="https://cdn.datatables.net/fixedcolumns/3.2.4/js/dataTables.fixedColumns.min.js"></script>
-	 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> -->
-	 <link rel="stylesheet" href="http://61.72.187.6/script/css/jquery.dataTables.min.css">
-	 <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.4/css/fixedColumns.dataTables.min.css">
-	 <link rel="stylesheet" href="http://61.72.187.6/script/css/style.css">
+	a:link {
+		color: #FFFFFF;
+		text-decoration: none;
+	}
 
+	/* visited link */
 
-	<style>
-		/* unvisited link */
+	a:visited {
+		color: #FFFFFF;
+		text-decoration: none;
+	}
 
-		a:link {
-			color: #FFFFFF;
-			text-decoration: none;
-		}
+	/* mouse over link */
 
-		/* visited link */
+	a:hover {
+		color: #FFFFFF;
+		text-decoration: none;
+	}
 
-		a:visited {
-			color: #FFFFFF;
-			text-decoration: none;
-		}
+	/* selected link */
 
-		/* mouse over link */
+	a:active {
+		color: #FFFFFF;
+		text-decoration: none;
+	}
+</style>
 
-		a:hover {
-			color: #FFFFFF;
-			text-decoration: none;
-		}
-
-		/* selected link */
-
-		a:active {
-			color: #FFFFFF;
-			text-decoration: none;
-		}
-	</style>
-</head>
-
-<body>
-	<div class="content-wrapper">
-		<div class="card">
-			<div class="card-body">
-				<div class="row px-2">
-					<img class="position-relative" src="./image/bot-re.png" width="70" height="70" style="max-width: 70; max-height: 70"/>
-					<div class="px-2 mx-2" style="display: inline-block">
-						<div>모델</div>
-						<div>승률</div>
-						<div>수익률</div>
-						<div>투자성향</div>
-					</div>
-					<div class="col-5 px-0">
-						<div id="model">아리</div>
-						<div id="winning-rate">~~%</div>
-						<div id="price-earnings-ratio">~~%</div>
-						<div id="propensity">~~~~~!~~~~~~~~~~~~~~~~</div>
-					</div>
+<div class="content-wrapper">
+	<div class="card">
+		<div class="card-body">
+			<div class="row px-2">
+				<img id="img-bot" class="position-relative" src="" width="70" height="70" style="max-width: 70; max-height: 70" />
+				<div class="px-2 mx-2" style="display: inline-block">
+					<div>모델</div>
+					<div>승률</div>
+					<div>수익률</div>
+					<div>투자성향</div>
 				</div>
-				<button type="button" class="btn btn-primary btn-sm" onclick="proStockGetJson();">새로고침</button>
-				<div class="position-relative">
-					<div class="list-group m-2">
-						<div class="list-group-item list-group-item-action active bg-secondary border-secondary text-center">
-							<span class="d-inline-block">카카오(035720)</span>
-							<span class="d-inline-block ml-5" style="font-size: 0.8rem">03-27 12:53</span>
-						</div>
-						<div class="list-group-item py-1 text-center">
-							<div class="d-inline-block">매수가</div>
-							<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">목표가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">손절가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-					</div>
-					<div class="list-group m-2">
-						<div class="list-group-item list-group-item-action active bg-secondary border-secondary text-center">
-							<span class="d-inline-block">카카오(035720)</span>
-							<span class="d-inline-block ml-5" style="font-size: 0.8rem">03-27 12:53</span>
-						</div>
-						<div class="list-group-item py-1 text-center">
-							<div class="d-inline-block">매수가</div>
-							<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">목표가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">손절가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-					</div>
-					<div class="list-group m-2">
-						<div class="list-group-item list-group-item-action active bg-secondary border-secondary text-center">
-							<span class="d-inline-block">카카오(035720)</span>
-							<span class="d-inline-block ml-5" style="font-size: 0.8rem">03-27 12:53</span>
-						</div>
-						<div class="list-group-item py-1 text-center">
-							<div class="d-inline-block">매수가</div>
-							<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">목표가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">손절가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-					</div>
-					<div class="list-group m-2">
-						<div class="list-group-item list-group-item-action active bg-secondary border-secondary text-center">
-							<span class="d-inline-block">카카오(035720)</span>
-							<span class="d-inline-block ml-5" style="font-size: 0.8rem">03-27 12:53</span>
-						</div>
-						<div class="list-group-item py-1 text-center">
-							<div class="d-inline-block">매수가</div>
-							<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">목표가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">손절가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-					</div>
-					<div class="list-group m-2">
-						<div class="list-group-item list-group-item-action active bg-secondary border-secondary text-center">
-							<span class="d-inline-block">카카오(035720)</span>
-							<span class="d-inline-block ml-5" style="font-size: 0.8rem">03-27 12:53</span>
-						</div>
-						<div class="list-group-item py-1 text-center">
-							<div class="d-inline-block">매수가</div>
-							<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">목표가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">손절가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-					</div>
-					<div class="list-group m-2">
-						<div class="list-group-item list-group-item-action active bg-secondary border-secondary text-center">
-							<span class="d-inline-block">카카오(035720)</span>
-							<span class="d-inline-block ml-5" style="font-size: 0.8rem">03-27 12:53</span>
-						</div>
-						<div class="list-group-item py-1 text-center">
-							<div class="d-inline-block">매수가</div>
-							<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">목표가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-						<div class="list-group-item py-1 text-center">
-								<div class="d-inline-block">손절가</div>
-								<div class="d-inline-block ml-5">100,000원</div>
-						</div>
-					</div>
+				<div class="col-5 px-0">
+					<div id="model">아리</div>
+					<div id="winning-rate">00%</div>
+					<div id="price-earnings-ratio">00%</div>
+					<div id="propensity">...</div>
 				</div>
 			</div>
+			<a type="button" class="btn btn-primary btn-sm float-right d-block" onclick="proStockGetJson();">새로고침</a>
 		</div>
-</body>
-
-</html>
+		<div id="capture-stock" class="card-body">
+		</div>
+	</div>
+</div>
