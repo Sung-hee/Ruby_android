@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-1.4.3.min.js"></script>
+
 <body class="bg-dark">
   <div class="container">
     <div class="card card-register mx-auto mt-5">
@@ -7,24 +9,56 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
             
+            <%= f.label :"기존 회원이신가요?" %>
+            <div class="btn-group btn-group-toggle" id="radiobutton" style="width:100%">
+              <label class="btn btn-secondary" style="width:100%">
+                <input type="radio" name="options" id="show_nickname"> 예
+              </label>
+              <label class="btn btn-secondary" style="width:100%">
+                <input type="radio" name="options" id="option3"> 아니요
+              </label>
+            </div>
+          
+            <div class="field nickname" id="nicknamefield" style="display:none;">
+              <%= f.label :필명, style: "margin-bottom: 0;  margin-top: 0.5rem;" %>
+              <%= f.text_field :nickname, autofocus: true, style: "width:100%", placeholder: "필명을 입력하세요" %><br/>
+              
+              <%= f.label :'필명 비밀번호', style: "margin-bottom: 0;  margin-top: 0.5rem;" %>
+              <%= f.password_field :nick_pass, autofocus: true, style: "width:100%", placeholder: "필명의 비밀번호를 입력하세요" %><br/>
+              <hr class="my-4">
+            </div>
+            
             <div class="field">
-              <%= f.label :이메일 %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:100%", placeholder: "이메일을 입력하세요" %>
+              <%= f.label :아이디, style: "margin-bottom: 0; margin-top: 0.5rem;" %> <em> (최소 6자리)</em>
+              <%= f.text_field :user_id, autofocus: true, style: "width:100%", placeholder: "영어 + 숫자 조합으로 입력하세요" %>
+            </div>
+            
+            <div class="form-group" style= "margin-bottom: 0;">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <%= f.label :비밀번호, style: "margin-bottom: 0; margin-top: 0.5rem;" %>
+                  <% if @minimum_password_length %>
+                  <em>(최소 <%= @minimum_password_length %>자리)</em>
+                  <% end %>
+                  <%= f.password_field :password, autocomplete: "off", style: "width:100%", placeholder: "비밀번호를 입력하세요" %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.label :'비밀번호 재확인', style: "margin-bottom: 0; margin-top: 0.5rem;" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", style: "width:100%", placeholder: "비밀번호 재확인" %>
+                </div>
+              </div>
             </div>
           
             <div class="field">
-              <%= f.label :비밀번호 %>
-              <% if @minimum_password_length %>
-              <em>(최소 <%= @minimum_password_length %>자리)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "off", style: "width:100%", placeholder: "비밀번호를 입력하세요" %>
+              <%= f.label :전화번호, style: "margin-bottom: 0; margin-top: 1.0rem;" %>
+              <%= f.text_field :phone, autofocus: true, style: "width:100%", placeholder: "전화번호를 입력하세요" %>
             </div>
-          
+            
             <div class="field">
-              <%= f.label :'비밀번호 재확인' %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off", style: "width:100%", placeholder: "비밀번호 재확인" %>
+              <%= f.label :이메일, style: "margin-bottom: 0; margin-top: 1.0rem;" %>
+              <%= f.text_field :email, autofocus: true, style: "width:100%", placeholder: "이메일을 입력하세요" %>
             </div>
-          
+            
             <div class="actions">
               </br>
               <%= f.submit "회원가입", class: 'btn btn-primary btn-block' %>
@@ -34,4 +68,14 @@
       </div>
     </div>
   </div>
+  <script>
+    $('#radiobutton').change(function() {
+        if ($('#show_nickname').attr('checked')) {
+          $('#nicknamefield').show();
+        } 
+        else {
+          $('#nicknamefield').hide();
+        }
+    });
+  </script>
 </body>

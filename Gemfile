@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'httparty'
+gem 'nokogiri'
+gem 'json'
+gem 'protected_attributes'
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'rack-cors', :require => 'rack/cors'
@@ -46,5 +50,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rails_db'
 end
 

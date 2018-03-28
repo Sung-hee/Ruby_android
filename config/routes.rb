@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :models
+  
+  devise_for :models, controllers: {
+    sessions: 'models/sessions', registrations: 'models/registrations'
+  }
+  
   root 'home#index'
   
   get 'home/index' => 'home#index'
@@ -16,6 +20,7 @@ Rails.application.routes.draw do
   get 'home/theme' => 'home#theme'
   get 'home/themeStock' => 'home#themeStock'
   get 'home/pro' => 'home#pro'
+  get 'home/proStock' => 'home#proStock'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
