@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
-  devise_for :models, controllers: {
-    sessions: 'models/sessions', registrations: 'models/registrations'
-  }
+  devise_for :models, controllers: { sessions: 'models/sessions', registrations: 'models/registrations' } do
+    get 'sign_in', :to => 'devise/sessions#new', :as => :new_model_session
+    get 'sign_up', :to => 'devise/registrations#new', :as => :new_model_registration
+    delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_model_session
+  end
   
   root 'home#index'
   
