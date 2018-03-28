@@ -19,9 +19,47 @@
 					<div id="propensity">...</div>
 				</div>
 			</div>
-			<a type="button" class="btn btn-primary btn-sm float-right d-block" onclick="proStockGetJson();">새로고침</a>
+			<div class="card mt-2">
+				<div class="d-inline-block">
+					<table class="table mb-0">
+						<tbody>
+							<tr style="border-top: 0px solid #dee2e6">
+								<td style="width:30%">매수가</td>
+								<td id="buyingPrice">-</td>
+							</tr>
+							<tr>
+								<td style="width:30%">목표가</td>
+								<td id="targetPrice">-</td>
+							</tr>
+							<tr>
+								<td style="width:30%">손절가</td>
+								<td id="paidOffPrice">-</td>
+							</tr>
+							<tr>
+								<td style="width:30%">포착시간</td>
+								<td id="captureTime">-</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="my-3">
+				<a class="float-left d-inline text-center" onclick="proStockGetJson();" style="width: 50%;">
+					<img src="http://61.72.187.6/images/reload" alt="새로고침" class="mx-auto" width="80%" />
+				</a>
+				<a id="charts-button" class="float-right d-inline text-center" href="#" style="width: 50%;">
+					<img src="http://61.72.187.6/images/gochart" alt="차트보기" class="text-center mx-auto" width="80%" />
+				</a>
+			</div>
 		</div>
-		<div id="capture-stock" class="card-body">
+		<div class="card-body">
+			<div id="capture-stock" class="card" style="height:15rem; overflow:hidden; overflow-y:scroll;">
+				<a><div class="list-group-item">-</div></a>
+				<a><div class="list-group-item">-</div></a>
+				<a><div class="list-group-item">-</div></a>
+				<a><div class="list-group-item">-</div></a>
+				<a><div class="list-group-item">-</div></a>
+			</div>
 		</div>
 	</div>
 </div>
