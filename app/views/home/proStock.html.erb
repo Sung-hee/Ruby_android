@@ -1,27 +1,35 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
  crossorigin="anonymous"></script>
-<script src="./pro/proStock.js"></script>
+<script src="http://61.72.187.6/script/pro/proStock.js"></script>
 
-<div class="content-wrapper">
+<div id="content-wrapper" class="content-wrapper">
 	<div class="card">
 		<div class="card-body">
 			<div class="row px-2">
-				<img id="img-bot" class="position-relative" src="" width="70" height="70" style="max-width: 70; max-height: 70" />
-				<div class="px-2 mx-2" style="display: inline-block">
-					<div>모델</div>
-					<div>승률</div>
-					<div>수익률</div>
-					<div>투자성향</div>
-				</div>
-				<div class="col-5 px-0">
-					<div id="model">아리</div>
-					<div id="winning-rate">00%</div>
-					<div id="price-earnings-ratio">00%</div>
-					<div id="propensity">...</div>
-				</div>
+				<img id="img-bot" class="position-relative mx-3 my-1" src="" alt="로봇 이미지" width="70" height="70" style="max-width: 70; max-height: 70" />
+				<table class="px-2 mx-2" style="display: inline-block">
+					<tbody>
+						<tr>
+							<th style="width:30%">모델</th>
+							<td id="model">-</td>
+						</tr>
+						<tr>
+							<th style="width:30%">승률</th>
+							<td id="winning-rate">-</td>
+						</tr>
+						<tr>
+							<th style="width:30%">수익률</th>
+							<td id="price-earnings-ratio">-</td>
+						</tr>
+						<tr>
+							<th style="width:30%">투자성향</th>
+							<td id="propensity">-</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-			<div class="card mt-2">
+			<div id="info" class="card mt-2">
 				<div class="d-inline-block">
 					<table class="table mb-0">
 						<tbody>
@@ -47,10 +55,10 @@
 			</div>
 			<div class="my-3">
 				<a class="float-left d-inline text-center" onclick="proStockGetJson();" style="width: 50%;">
-					<img src="http://61.72.187.6/images/reload" alt="새로고침" class="mx-auto" width="80%" />
+					<img src="http://61.72.187.6/images/reload" alt="새로고침" class="mx-auto" width="85%"/>
 				</a>
 				<a id="charts-button" class="float-right d-inline text-center" href="#" style="width: 50%;">
-					<img src="http://61.72.187.6/images/gochart" alt="차트보기" class="text-center mx-auto" width="80%" />
+					<img src="http://61.72.187.6/images/gochart" alt="차트보기" class="text-center mx-auto" width="85%"/>
 				</a>
 			</div>
 		</div>

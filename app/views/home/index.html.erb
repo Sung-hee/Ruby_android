@@ -8,106 +8,108 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.4/css/fixedColumns.dataTables.min.css">
 <link rel="stylesheet" href="http://61.72.187.6/script/css/style.css">
     
-	<div class="content-wrapper">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xl-3 col-sm-6 mb-3">
-					<div class="card text-white bg-light o-hidden h-100">
-						<div class="card-header" style="background-color:#333333">
-							주요지수
-							<a class="float-right" href="/home/foreignprice">
-								<img src="http://61.72.187.6/images/webApp/move_page.png" height="10">
-							</a>
-						</div>
-						<div class="card-body">
-							<div class="mr-5" id=korea_data>
-								<span style="font-size:1.0em; color:black;">코스피</span>
-								<span style="font-size:1.3em; color:black;">&nbsp&nbsp-&nbsp&nbsp</span>
-								<span style="font-size:0.8em; color:black;">( - )</span>
-								</br>
-								<span style="font-size:1.0em; color:black;">코스닥</span>
-								<span style="font-size:1.3em; color:black;">&nbsp&nbsp-&nbsp&nbsp</span>
-								<span style="font-size:0.8em; color:black;">( - )</span>
-							</div>
-						</div>
+<div class="content-wrapper">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-3 col-sm-6 mb-3">
+				<div class="card text-white bg-light o-hidden h-100">
+					<div class="card-header" style="background-color:#333333">
+						주요지수
+						<a class="float-right" href="/home/foreignprice">
+							<img src="http://61.72.187.6/images/webApp/move_page.png" height="10">
+						</a>
 					</div>
-				</div>
-				<div class="col-xl-3 col-sm-6 mb-3">
-					<div class="card text-white bg-light o-hidden h-100">
-						<div class="card-header" style="background-color:#91180B">
-							오늘의 <span style="font-weight: bold;">HOT</span> 테마
-							<a class="float-right" href="/home/theme">
-								<img src="http://61.72.187.6/images/webApp/move_page.png" height="10">
-							</a>
-						</div>
-						<div id="index-theme-list" class="text-dark" style="height:9rem; overflow:hidden; overflow-y:scroll;">
-							<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
-							<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
-							<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
-							<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
-							<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 col-sm-6 mb-3">
-					<div class="card bg-light o-hidden h-100">
-						<div class="card-body" style="background-color: #EE4D49">
-							<div class="card-body-icon">
-								<!-- <i class="fa fa-fw fa-support"></i> -->
-								<img src="http://61.72.187.6/images/webApp/charts.png" height="80" width="80">
-							</div>
-							<a href="/home/gold_daycharts?name=삼성전자">
-							  <div class="mr-5"><p class="text-white" style="font-weight: bold;">골드차트</p><p class="text-white">마켓파워·황금알점수</p></div>
-						  </a>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 col-sm-6 mb-3">
-					<div class="card bg-light o-hidden h-100">
-						<div class="card-body" style="background-color: #03A695">
-							<div class="card-body-icon">
-								<!-- <i class="fa fa-fw fa-support"></i> -->
-								<img src="http://61.72.187.6/images/webApp/pro.png" height="80" width="80">
-							</div>
-							<a href="/home/pro">
-							  <div class="mr-5"><p class="text-dark" style="font-weight: bold;">인공지능 종목포착</p><p class="text-dark">GA를 이용한 머신러닝 종목포착</p></div>
-						  </a>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 col-sm-6 mb-3">
-					<div class="card bg-light o-hidden h-100">
-						<div class="card-body" style="background-color: #FAE100">
-							<div class="card-body-icon">
-								<!-- <i class="fa fa-fw fa-support"></i> -->
-								<img src="http://61.72.187.6/images/webApp/talk.png" height="80" width="80">
-							</div>
-							<div class="mr-5"><p class="text-white" style="font-weight: bold;">종목상담</p><p class="text-white">카카오톡 상담</p></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 col-sm-6 mb-3">
-					<div class="card text-white bg-primary o-hidden h-100">
-						<div class="card-body" style="background-color: #5172FF">
-							<div class="card-body-icon">
-								<!-- <i class="fa fa-fw fa-support"></i> -->
-								<img src="http://61.72.187.6/images/webApp/mbn.png" height="80" width="80">
-							</div>
-							<div class="mr-5"><p class="text-white" style="font-weight: bold;">MBN 매일경제 TV</p><p class="text-white">매주 월~목 오후 1시</p></div>
+					<div class="card-body">
+						<div class="mr-5" id=korea_data>
+							<span style="font-size:1.0em; color:black;">코스피</span>
+							<span style="font-size:1.3em; color:black;">&nbsp&nbsp-&nbsp&nbsp</span>
+							<span style="font-size:0.8em; color:black;">( - )</span>
+							</br>
+							<span style="font-size:1.0em; color:black;">코스닥</span>
+							<span style="font-size:1.3em; color:black;">&nbsp&nbsp-&nbsp&nbsp</span>
+							<span style="font-size:0.8em; color:black;">( - )</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="card mb-3">
-				<div class="card-header">
-					<label>뉴스/공시</label>
+			<div class="col-xl-3 col-sm-6 mb-3">
+				<div class="card text-white bg-light o-hidden h-100">
+					<div class="card-header" style="background-color:#91180B">
+						오늘의 <span style="font-weight: bold;">HOT</span> 테마
+						<a class="float-right" href="/home/theme">
+							<img src="http://61.72.187.6/images/webApp/move_page.png" height="10">
+						</a>
+					</div>
+					<div id="index-theme-list" class="text-dark" style="height:9rem; overflow:hidden; overflow-y:scroll;">
+						<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
+						<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
+						<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
+						<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
+						<a class="list-group-item list-group-item-action" href="/home/theme">-</a>
+					</div>
 				</div>
-				<div class="card-body table-responsive" style="padding: 0;">
-					<table class="table" id="allnews">
-					</table>
-					<iframe class="newsIframe" name="test" width="100%" height="350" style="display:none;"></iframe>
+			</div>
+			<div class="col-xl-3 col-sm-6 mb-3">
+				<div class="card bg-light o-hidden h-100" style="border-style: none;">
+					<div class="card-body py-1" style="background-color: #EE4D49">
+							<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
+							<!-- <i class="fa fa-fw fa-support"></i> -->
+							<img src="http://61.72.187.6/images/webApp/charts.png" height="70" width="90">
+						</div>
+						<a href="/home/gold_daycharts?name=삼성전자">
+						  <div><div class="my-2 text-white" style="font-weight: bold;">골드차트</div><div class="my-2 text-white">마켓파워·황금알점수</div></div>
+					  </a>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-sm-6 mb-3">
+				<div class="card bg-light o-hidden h-100" style="border-style: none;">
+					<div class="card-body py-1" style="background-color: #03A695">
+						<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
+							<!-- <i class="fa fa-fw fa-support"></i> -->
+							<img src="http://61.72.187.6/images/webApp/pro.png" height="70" width="90">
+						</div>
+						<a href="/home/pro">
+						  <div><div class="my-2 text-white" style="font-weight: bold;">인공지능 종목포착</div><div class="my-2 text-white">GA 머신러닝</div></div>
+					  </a>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-sm-6 mb-3">
+				<div class="card bg-light o-hidden h-100" style="border-style: none;">
+					<div class="card-body py-1" style="background-color: #FAE100">
+						<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
+							<!-- <i class="fa fa-fw fa-support"></i> -->
+							<img src="http://61.72.187.6/images/webApp/talk.png" height="70" width="90">
+						</div>
+						<a href="/home/kakaotalk">
+					    <div><div class="my-2 text-dark" style="font-weight: bold;">종목상담</div><div class="my-2 text-dark">카카오톡 상담</div></div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-sm-6 mb-3">
+				<div class="card bg-primary o-hidden h-100" style="border-style: none;">
+					<div class="card-body py-1" style="background-color: #5172FF">
+						<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
+							<!-- <i class="fa fa-fw fa-support"></i> -->
+							<img src="http://61.72.187.6/images/webApp/mbn.png" height="70" width="90">
+						</div>
+					  <div><div class="my-2 text-white" style="font-weight: bold;">MBN 매일경제 TV</div><div class="my-2 text-white">매주 월~목 오후 1시</div></div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="card mb-3">
+			<div class="card-header">
+				<label>뉴스/공시</label>
+			</div>
+			<div class="card-body table-responsive" style="padding: 0;">
+				<table class="table" id="allnews">
+				</table>
+				<iframe class="newsIframe" name="test" width="100%" height="350" style="display:none;"></iframe>
+			</div>
+		</div>
 	</div>
+</div>
 
