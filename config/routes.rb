@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'home/themeStock' => 'home#themeStock'
   get 'home/pro' => 'home#pro'
   get 'home/proStock' => 'home#proStock'
+  get 'home/kakaotalk' => 'home#kakaotalk'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
