@@ -4,71 +4,63 @@
 <script src="http://61.72.187.6/script/pro/proStock.js"></script>
 
 <div id="content-wrapper" class="content-wrapper">
-	<div class="card">
+	<div id="div-main" class="card">
 		<div class="card-body">
 			<div class="row px-2">
 				<img id="img-bot" class="position-relative mx-3 my-1" src="" alt="로봇 이미지" width="70" height="70" style="max-width: 70; max-height: 70" />
-				<table class="px-2 mx-2" style="display: inline-block">
-					<tbody>
-						<tr>
-							<th style="width:30%">모델</th>
-							<td id="model">-</td>
-						</tr>
-						<tr>
-							<th style="width:30%">승률</th>
-							<td id="winning-rate">-</td>
-						</tr>
-						<tr>
-							<th style="width:30%">수익률</th>
-							<td id="price-earnings-ratio">-</td>
-						</tr>
-						<tr>
-							<th style="width:30%">투자성향</th>
-							<td id="propensity">-</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div id="info" class="card mt-2">
-				<div class="d-inline-block">
-					<table class="table mb-0">
+				<table id="bot-info-table" class="px-2 mx-2" style="display: inline-block">
 						<tbody>
-							<tr style="border-top: 0px solid #dee2e6">
-								<td style="width:30%">매수가</td>
-								<td id="buyingPrice">-</td>
+							<tr>
+								<th style="width:30%">모델</th>
+								<td id="model">-</td>
 							</tr>
 							<tr>
-								<td style="width:30%">목표가</td>
-								<td id="targetPrice">-</td>
+								<th style="width:30%">승률</th>
+								<td id="winning-rate">-</td>
 							</tr>
 							<tr>
-								<td style="width:30%">손절가</td>
-								<td id="paidOffPrice">-</td>
+								<th style="width:30%">수익률</th>
+								<td id="price-earnings-ratio">-</td>
 							</tr>
 							<tr>
-								<td style="width:30%">포착시간</td>
-								<td id="captureTime">-</td>
+								<th style="width:30%">투자성향</th>
+								<td id="propensity">-</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-			</div>
-			<div class="my-3">
-				<a class="float-left d-inline text-center" onclick="proStockGetJson();" style="width: 50%;">
-					<img src="http://61.72.187.6/images/reload" alt="새로고침" class="mx-auto" width="85%"/>
-				</a>
-				<a id="charts-button" class="float-right d-inline text-center" href="#" style="width: 50%;">
-					<img src="http://61.72.187.6/images/gochart" alt="차트보기" class="text-center mx-auto" width="85%"/>
-				</a>
-			</div>
-		</div>
-		<div class="card-body">
-			<div id="capture-stock" class="card" style="height:15rem; overflow:hidden; overflow-y:scroll;">
-				<a><div class="list-group-item">-</div></a>
-				<a><div class="list-group-item">-</div></a>
-				<a><div class="list-group-item">-</div></a>
-				<a><div class="list-group-item">-</div></a>
-				<a><div class="list-group-item">-</div></a>
+				<div id="info" class="card mt-2">
+					<div class="d-inline-block">
+						<table class="table mb-0">
+							<tbody>
+								<tr style="border-top: 0px solid #dee2e6">
+									<td style="width:30%">매수가</td>
+									<td id="buyingPrice">-</td>
+								</tr>
+								<tr>
+									<td style="width:30%">목표가</td>
+									<td id="targetPrice">-</td>
+								</tr>
+								<tr>
+									<td style="width:30%">손절가</td>
+									<td id="paidOffPrice">-</td>
+								</tr>
+								<tr>
+									<td style="width:30%">포착시간</td>
+									<td id="captureTime">-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div id="div-buttons" class="my-3">
+					<a class="float-left d-inline text-center" onclick="proStockGetJson();" style="width: 50%;">
+						<img src="http://61.72.187.6/images/reload" alt="새로고침" class="mx-auto" width="85%"/>
+					</a>
+					<a id="charts-button" class="float-right d-inline text-center" href="#" style="width: 50%;">
+						<img src="http://61.72.187.6/images/gochart" alt="차트보기" class="text-center mx-auto" width="85%"/>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
