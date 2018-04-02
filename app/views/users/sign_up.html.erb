@@ -1,0 +1,110 @@
+<script src="https://code.jquery.com/jquery-1.4.3.min.js"></script>
+
+<style>
+  html, body {
+    height: 100%; overflow: hidden;
+  }
+  div {
+    height: 100%; border: 1px;
+  }
+</style>
+
+<div class="container" style="background-color: #eeeeee;">
+  <div class="card-body">
+    <form actions="/users/sign_up">
+      <div class="text-center">
+        <label style= "font-size: 2rem; text-decoration: underline">기존 회원이신가요?</label>
+      </div>
+      <div class="btn-group btn-group-toggle" id="radiobutton" style="width:100%">
+        <label class="btn btn" id="yesbutton" style="width:100%; background-color:#FFFFFF; color:#333; border: 1px solid #333">
+          <input type="radio" name="options" id="show_nickname"> 예
+        </label>
+        <label class="btn btn" id="nobutton" style="width:100%; background-color:#FFFFFF; border: 1px solid #333">
+          <input type="radio" name="options" id="option3"> 아니요
+        </label>
+      </div>
+    
+      <div class="field nickname" id="nicknamefield" style="display:none;">
+        <table class="table">
+          <tr style="padding:0">
+            <td style="background-color:#FFFFFF; padding:0;">
+              <label style="margin-bottom: 0; color:#333; padding: 0.8rem; font-size: 0.9rem;">필명</label>
+            </td>
+            <td style="padding:0; background-color:#FFFFFF">
+              <input type="text" id="nickname" name="nickname" style="width:100%; padding: 0.8rem; margin-bottom: 0; background-color:#FFFFFF; border:0; font-size: 0.8rem;", placeholder="필명을 입력하세요"/><br/>
+            </td>
+          </tr>
+          <tr style="padding:0;">
+            <td style="background-color:#FFFFFF; padding:0;">
+              <label style="margin-bottom: 0; color:#333; padding: 0.8rem; font-size: 0.9rem;">비밀번호</label>
+            </td>
+            <td style="padding:0; background-color:#FFFFFF">
+              <input type="password" id="nick_pass" name="nick_pass" style="width:100%; padding: 0.8rem; margin-bottom: 0; background-color:#FFFFFF; border:0; font-size: 0.8rem;", placeholder="비밀번호를 입력하세요"/><br/>
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+      <table class="table" style="margin-top:0.5rem;">
+        <tr style="padding:0">
+          <td style="background-color:#FFFFFF; padding:0;">
+            <label style="margin-bottom: 0; color:#333; padding: 0.8rem; font-size: 0.9rem;">아이디</label>
+          </td>
+          <td style="background-color:#FFFFFF; padding:0;">
+            <input type="text" id="id" name="id" style="width:100%; padding: 0.8rem; margin-bottom: 0; background-color:#FFFFFF; border:0; font-size: 0.8rem;", placeholder="영어+숫자, 최소6자리"/>
+          </td>
+        </tr>
+        <tr style="padding:0">
+          <td style="background-color:#FFFFFF; padding:0;">
+            <label style="margin-bottom: 0; color:#333; padding: 0.8rem; font-size: 0.9rem;">비밀번호</label>
+          </td>
+          <td style="background-color:#FFFFFF; padding:0;">
+            <input type="password" id="pwd" name="pwd" style="width:100%; padding: 0.8rem; margin-bottom: 0; background-color:#FFFFFF; border:0; font-size: 0.8rem;", placeholder="최소6자리"/>
+          </td>
+        <tr>
+        <tr style="padding:0">
+          <td style="background-color:#FFFFFF; padding:0;">
+            <label style="margin-bottom: 0; color:#333; padding: 0.8rem; font-size: 0.9rem;">재확인</label>
+          </td>
+          <td style="background-color:#FFFFFF; padding:0;">
+            <input type="password" id="pwd_confirmation" name="pwd_confirmation" style="width:100%; padding: 0.8rem; margin-bottom: 0; background-color:#FFFFFF; border:0; font-size: 0.8rem;", placeholder="입력하세요"/>
+          </td>
+        </tr>
+        <tr style="padding:0">
+          <td style="background-color:#FFFFFF; padding:0;">
+            <label style="margin-bottom: 0; color:#333; padding: 0.8rem; font-size: 0.9rem;">전화번호</label>
+          </td>
+          <td style="background-color:#FFFFFF; padding:0;">
+            <input type="phone" id="phone" name="phone" style="width:100%; padding: 0.8rem; margin-bottom: 0; background-color:#FFFFFF; border:0; font-size: 0.8rem;", placeholder="입력하세요"/>
+          </td>
+        </tr>
+        <tr style="background-color:#FFFFFF; padding:0;">
+          <td style="background-color:#FFFFFF; padding:0;">
+            <label style="margin-bottom: 0; color:#333; padding: 0.8rem; font-size: 0.9rem;">이메일</label>
+          </td>
+          <td style="background-color:#FFFFFF; padding:0;">
+            <input type="email" id="email" name="email" style="width:100%; padding: 0.8rem; margin-bottom: 0; background-color:#FFFFFF; border:0; font-size: 0.8rem;", placeholder="입력하세요"/>
+          </td>
+        </tr>
+      </table>
+      <div class="actions">
+        </br>
+        <input type="submit" class="btn btn btn-block text-white" style="background-color: #91180b; height:3.0rem;" value="동의하고 회원가입"/> 
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  $('#radiobutton').change(function() {
+      if ($('#show_nickname').attr('checked')) {
+        $('#nicknamefield').show();
+        $('#yesbutton').css('background-color', "#FFC000");
+        $('#nobutton').css('background-color', "#FFFFFF");
+      } 
+      else {
+        $('#nicknamefield').hide();
+        $('#yesbutton').css('background-color', "#FFFFFF");
+        $('#nobutton').css('background-color', "#FFC000");
+      }
+  });
+</script>

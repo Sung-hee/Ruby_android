@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get 'home/proStock' => 'home#proStock'
   get 'home/kakaotalk' => 'home#kakaotalk'
 
+  get 'users/sign_in' 
+  get 'users/sign_up' 
+  get 'users/up_session'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
