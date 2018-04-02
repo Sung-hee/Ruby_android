@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_model_session
   end
   
-  root 'home#index'
+  root 'users#sign_in'
   
   get 'home/index' => 'home#index'
   get 'home/charts' => 'home#charts'
@@ -24,10 +24,12 @@ Rails.application.routes.draw do
   get 'home/pro' => 'home#pro'
   get 'home/proStock' => 'home#proStock'
   get 'home/kakaotalk' => 'home#kakaotalk'
+  get 'home/payment' => 'home#payment'
 
   get 'users/sign_in' 
   get 'users/sign_up' 
   get 'users/up_session'
+  get '/users/sign_out' => 'users#sign_out'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

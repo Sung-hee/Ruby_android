@@ -10,6 +10,9 @@
 <div class="container" style="background-color: #eeeeee;">
   <div class="card-body">
     <form actions="/users/sign_in" method: "get">
+      <div class="text-center">
+        <label style="color:red; font-size: 0.9rem;"><%= session[:error] %></label>
+      </div>
       <div class="field mb-3">
         <input type="text" id="id" name="id" style="width:100%; height:2.5rem; font-size: 0.8rem; padding:0.8rem;", placeholder= "아이디를 입력하세요"/> 
       </div>

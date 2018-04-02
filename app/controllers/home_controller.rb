@@ -53,4 +53,7 @@ class HomeController < ApplicationController
   
   def pro
   end
+  
+  def payment
+  end
 end

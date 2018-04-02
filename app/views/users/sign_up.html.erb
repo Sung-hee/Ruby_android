@@ -13,6 +13,7 @@
   <div class="card-body">
     <form actions="/users/sign_up">
       <div class="text-center">
+        <label style="color:red; font-size: 0.9rem"><%= session[:error] %></label></br>
         <label style= "font-size: 2rem; text-decoration: underline">기존 회원이신가요?</label>
       </div>
       <div class="btn-group btn-group-toggle" id="radiobutton" style="width:100%">
