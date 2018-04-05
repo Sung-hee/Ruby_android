@@ -1,10 +1,15 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-gold bg-gold fixed-top" id="mainNav">
-	<button class="navbar-toggler navbar-toggler-right po" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+	<a onclick="goBack()"><img src="http://13.125.147.26/images/before.png" width="30" height="30"></a>
+  	<a href="/home/index">
+	    <div class="navbar-brand text-center fixed-top" style="width: 50%; height: auto; top: 0.35rem;">황금알M
+	   </div>
+   </a>
+	<button class="navbar-toggler navbar-toggler-right po" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="padding: 0;">
+	  <img src="http://13.125.147.26/images/menu.png" width="50" height="30">
+	  </img>
+  </button>
 	<% if session[:grade] == 1 || session[:grade] == 3 %>
-  	<a class="navbar-brand" href="/home/index">황금알M</a>
   	<div class="collapse navbar-collapse" id="navbarResponsive">
   		<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
   			<li class="nav-item" data-toggle="tooltip" data-placement="left" title="Dashboard">
@@ -97,16 +102,8 @@
   				</a>
   			</li>
   		</ul>
-  		<ul class="navbar-nav ml-auto">
-  			<li class="nav-item">
-  			  <a class="nav-link" href="/users/sign_out">
-            <i class="fa fa-fw fa-sign-out"></i>Logout
-          </a>
-  			</li>
-  		</ul>
   	</div>
 	<% else %>
-  	<a class="navbar-brand" href="/users/sign_in">황금알M</a>
   	<div class="collapse navbar-collapse" id="navbarResponsive">
   		<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
   			<li class="nav-item" data-toggle="tooltip" data-placement="left" title="Dashboard">
@@ -199,13 +196,12 @@
   				</a>
   			</li>
   		</ul>
-  		<!--<ul class="navbar-nav ml-auto">-->
-  		<!--	<li class="nav-item">-->
-  		<!--	  <a class="nav-link" href="/users/sign_out">-->
-    <!--        <i class="fa fa-fw fa-sign-out"></i>Logout-->
-    <!--      </a>-->
-  		<!--	</li>-->
-  		<!--</ul>-->
   	</div>
 	<% end %>
 </nav>
+
+<script>
+function goBack() {
+    window.history.go(-1);
+}
+</script>
