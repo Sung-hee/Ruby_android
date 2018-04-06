@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   require 'nokogiri'
   
   def sign_in
+    @title = "로그인"
     if session[:grade].nil?
-      url = "http://61.72.187.6/phps/login?id=#{params[:id]}&pwd=#{params[:pwd]}"
+      url = "http://13.125.147.26/phps/login?id=#{params[:id]}&pwd=#{params[:pwd]}&hp=#{params[:hp]}"
       encode = URI.encode(url)
       # url = "https://charttest-sungheeek.c9users.io/truefalse.json"
       response = HTTParty.get(encode)
@@ -39,8 +40,10 @@ class UsersController < ApplicationController
   end
   
   def sign_up
+    @title = "회원가입"
+    
     if session[:grade].nil?
-      url = "http://61.72.187.6/phps/join.php?nickname=#{params[:nickname]}&nick_pass=#{params[:nick_pass]}&id=#{params[:id]}&pwd=#{params[:pwd]}&pwd_confirmation=#{params[:pwd_confirmation]}&phone=#{params[:phone]}&email=#{params[:email]}"
+      url = "http://13.125.147.26/phps/join?id=#{params[:id]}&pwd=#{params[:pwd]}&pwd_confirmation=#{params[:pwd_confirmation]}&phone=#{params[:phone]}&email=#{params[:email]}&hp=#{params[:hp]}"
       encode = URI.encode(url)
       response = HTTParty.get(encode)
       hash = JSON.parse(response.body)

@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-gold bg-gold fixed-top" id="mainNav">
 	<a onclick="goBack()"><img src="http://13.125.147.26/images/before.png" width="30" height="30"></a>
   	<a href="/home/index">
-	    <div class="navbar-brand text-center fixed-top" style="width: 50%; height: auto; top: 0.35rem;">황금알M
+	    <div class="navbar-brand text-center fixed-top" style="width: 50%; height: auto; top: 0.35rem;"> <%= @title %>
 	   </div>
    </a>
 	<button class="navbar-toggler navbar-toggler-right po" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="padding: 0;">
@@ -14,7 +14,8 @@
   		<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
   			<li class="nav-item" data-toggle="tooltip" data-placement="left" title="Dashboard">
   				<a class="nav-link" href="/home/index">
-  					<i class="fa fa-fw fa-dashboard"></i>
+  					<!--<i class="fa fa-fw fa-dashboard"></i>-->
+  					<i class="fas fa-home"></i>
   					<span class="nav-link-text">HOME
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
@@ -22,7 +23,8 @@
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
   				<a class="nav-link" href="/home/charts?name=삼성전자">
-  					<i class="fa fa-fw fa-area-chart"></i>
+  					<!--<i class="fa fa-fw fa-area-chart"></i>-->
+  					<i class="fas fa-chart-area"></i>
   					<span class="nav-link-text">일반차트
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
@@ -31,14 +33,16 @@
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
   			  <% if session[:grade] == 3 %>
     				<a class="nav-link" href="/home/gold_daycharts?name=삼성전자">
-    					<i class="fa fa-fw fa-area-chart"></i>
+    					<!--<i class="fa fa-fw fa-area-chart"></i>-->
+    					<i class="fas fa-chart-line"></i>
     					<span class="nav-link-text">골드차트
     						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
     					</span>
     				</a>
   				<% elsif session[:grade] == 1 %>
     				<a class="nav-link" href="/home/payment">
-    					<i class="fa fa-fw fa-area-chart"></i>
+    					<!--<i class="fa fa-fw fa-area-chart"></i>-->
+    					<i class="fas fa-chart-line"></i>
     					<span class="nav-link-text">골드차트
     						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
     					</span>
@@ -56,14 +60,15 @@
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
   			  <% if session[:grade] == 3 %>
     				<a class="nav-link" href="/home/pro">
-    					<i class="fa fa-fw fa-table"></i>
+    					<i class="fab fa-android"></i>
     					<span class="nav-link-text">인공지능 종목포착
     						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
     					</span>
     				</a>
   				<% elsif session[:grade] == 1 %>
   				  <a class="nav-link" href="/home/payment">
-    					<i class="fa fa-fw fa-table"></i>
+    					<!--<i class="fa fa-fw fa-table"></i>-->
+    					<i class="fab fa-android"></i>
     					<span class="nav-link-text">인공지능 종목포착
     						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
     					</span>
@@ -72,7 +77,7 @@
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
   				<a class="nav-link" href="/home/foreignprice">
-  					<i class="fa fa-fw fa-table"></i>
+  					<i class="fas fa-list"></i>
   					<span class="nav-link-text">주요지수
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
@@ -80,7 +85,8 @@
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
   				<a class="nav-link" href="/home/theme">
-  					<i class="fa fa-fw fa-table"></i>
+  					<!--<i class="fa fa-fw fa-table"></i>-->
+  					<i class="far fa-lightbulb"></i>
   					<span class="nav-link-text">테마주
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
@@ -88,7 +94,8 @@
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
   				<a class="nav-link" href="/home/payment">
-  					<i class="fa fa-fw fa-table"></i>
+  					<!--<i class="fa fa-fw fa-table"></i>-->
+  					<i class="far fa-credit-card"></i>
   					<span class="nav-link-text">결제
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
@@ -108,7 +115,8 @@
   		<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
   			<li class="nav-item" data-toggle="tooltip" data-placement="left" title="Dashboard">
   				<a class="nav-link" href="/users/sign_in">
-  					<i class="fa fa-fw fa-dashboard"></i>
+  					<!--<i class="fa fa-fw fa-dashboard"></i>-->
+  					<i class="fas fa-home"></i>
   					<span class="nav-link-text">HOME
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
@@ -116,28 +124,21 @@
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
   				<a class="nav-link" href="/users/sign_in">
-  					<i class="fa fa-fw fa-area-chart"></i>
+  					<!--<i class="fa fa-fw fa-area-chart"></i>-->
+  					<i class="fas fa-chart-area"></i>
   					<span class="nav-link-text">일반차트
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
   				</a>
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-  			  <% if session[:grade] == 3 %>
-    				<a class="nav-link" href="/users/sign_in">
-    					<i class="fa fa-fw fa-area-chart"></i>
-    					<span class="nav-link-text">골드차트
-    						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
-    					</span>
-    				</a>
-  				<% elsif session[:grade] == 1 %>
-    				<a class="nav-link" href="/users/sign_in">
-    					<i class="fa fa-fw fa-area-chart"></i>
-    					<span class="nav-link-text">골드차트
-    						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
-    					</span>
-    				</a>
-  				<% end %>
+  				<a class="nav-link" href="/users/sign_in">
+  					<!--<i class="fa fa-fw fa-area-chart"></i>-->
+  					<i class="fas fa-chart-line"></i>
+  					<span class="nav-link-text">골드차트
+  						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
+  					</span>
+  				</a>
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
   				<a class="nav-link" href="/users/sign_in">
@@ -148,25 +149,16 @@
   				</a>
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-  			  <% if session[:grade] == 3 %>
-    				<a class="nav-link" href="/users/sign_in">
-    					<i class="fa fa-fw fa-table"></i>
-    					<span class="nav-link-text">인공지능 종목포착
-    						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
-    					</span>
-    				</a>
-  				<% elsif session[:grade] == 1 %>
-  				  <a class="nav-link" href="/users/sign_in">
-    					<i class="fa fa-fw fa-table"></i>
-    					<span class="nav-link-text">인공지능 종목포착
-    						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
-    					</span>
-    				</a>
-  				<% end %>
+  				<a class="nav-link" href="/users/sign_in">
+  					<i class="fab fa-android"></i>
+  					<span class="nav-link-text">인공지능 종목포착
+  						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
+  					</span>
+  				</a>
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
   				<a class="nav-link" href="/users/sign_in">
-  					<i class="fa fa-fw fa-table"></i>
+  					<i class="fas fa-list"></i>
   					<span class="nav-link-text">주요지수
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
@@ -174,7 +166,8 @@
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
   				<a class="nav-link" href="/users/sign_in">
-  					<i class="fa fa-fw fa-table"></i>
+  					<!--<i class="fa fa-fw fa-table"></i>-->
+  					<i class="far fa-lightbulb"></i>
   					<span class="nav-link-text">테마주
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
@@ -182,7 +175,8 @@
   			</li>
   			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
   				<a class="nav-link" href="/users/sign_in">
-  					<i class="fa fa-fw fa-table"></i>
+  					<!--<i class="fa fa-fw fa-table"></i>-->
+  					<i class="far fa-credit-card"></i>
   					<span class="nav-link-text">결제
   						<input type="radio" name="menus" class="form-control form-control-dark w-100" hidden="hidden"/>
   					</span>
