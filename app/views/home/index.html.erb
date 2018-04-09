@@ -51,32 +51,60 @@
 			</div>
 			<div class="col-xl-3 col-sm-6 mb-3">
 				<div class="card bg-light o-hidden h-100" style="border-style: none;">
-					<a href="/home/gold_daycharts?name=삼성전자">
-  					<div class="card-body py-1" style="background-color: #EE4D49">
-							<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
-  							<img src="http://13.125.147.26/images/webApp/charts.png" height="70" width="90">
-  						</div>
-						  <div>
-						    <div class="my-2 text-white" style="font-weight: bold;">골드차트</div>
-						    <div class="my-2 text-white">마켓파워·황금알점수</div>
-					    </div>
-  					</div>
-				  </a>
+				  <% if session[:grade] == 3 %>
+  					<a href="/home/gold_daycharts?name=삼성전자">
+    					<div class="card-body py-1" style="background-color: #EE4D49">
+  							<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
+    							<img src="http://13.125.147.26/images/webApp/charts.png" height="70" width="90">
+    						</div>
+  						  <div>
+  						    <div class="my-2 text-white" style="font-weight: bold;">골드차트</div>
+  						    <div class="my-2 text-white">마켓파워·황금알점수</div>
+  					    </div>
+    					</div>
+  				  </a>
+				  <% else %>
+					  <a href="/home/payment">
+    					<div class="card-body py-1" style="background-color: #EE4D49">
+  							<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
+    							<img src="http://13.125.147.26/images/webApp/charts.png" height="70" width="90">
+    						</div>
+  						  <div>
+  						    <div class="my-2 text-white" style="font-weight: bold;">골드차트</div>
+  						    <div class="my-2 text-white">마켓파워·황금알점수</div>
+  					    </div>
+    					</div>
+  				  </a>				  
+				  <% end %>
 				</div>
 			</div>
 			<div class="col-xl-3 col-sm-6 mb-3">
 				<div class="card bg-light o-hidden h-100" style="border-style: none;">
-					<a href="/home/pro">
-  					<div class="card-body py-1" style="background-color: #03A695">
-  						<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
-  							<img src="http://13.125.147.26/images/webApp/pro.png" height="70" width="90">
-  						</div>
-						  <div>
-						    <div class="my-2 text-white" style="font-weight: bold;">인공지능 종목포착</div>
-						    <div class="my-2 text-white">GA 머신러닝</div>
-					    </div>
-  					</div>
-				  </a>
+				  <% if session[:grade] == 3%>
+  					<a href="/home/pro">
+    					<div class="card-body py-1" style="background-color: #03A695">
+    						<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
+    							<img src="http://13.125.147.26/images/webApp/pro.png" height="70" width="90">
+    						</div>
+  						  <div>
+  						    <div class="my-2 text-white" style="font-weight: bold;">인공지능 종목포착</div>
+  						    <div class="my-2 text-white">GA 머신러닝</div>
+  					    </div>
+    					</div>
+  				  </a>
+				  <% else %>
+  					<a href="/home/payment">
+    					<div class="card-body py-1" style="background-color: #03A695">
+    						<div class="card-body-icon m-0" style="top: -28px; right: 35px;">
+    							<img src="http://13.125.147.26/images/webApp/pro.png" height="70" width="90">
+    						</div>
+  						  <div>
+  						    <div class="my-2 text-white" style="font-weight: bold;">인공지능 종목포착</div>
+  						    <div class="my-2 text-white">GA 머신러닝</div>
+  					    </div>
+    					</div>
+  				  </a>				  
+				  <% end %>
 				</div>
 			</div>
 			<div class="col-xl-3 col-sm-6 mb-3">
@@ -106,7 +134,7 @@
 			<!--	    </div>-->
 			<!--		</div>-->
 			<!--	</div>-->
-			<!--</div>-->
+			</div>
 		</div>
 		<div class="card mb-3">
 			<div class="card-header">
