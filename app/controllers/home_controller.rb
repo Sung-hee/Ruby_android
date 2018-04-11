@@ -73,6 +73,10 @@ class HomeController < ApplicationController
     @title = "종목포착"
   end
   
+  def proStock
+    @title = "종목포착"
+  end
+  
   def payment
     @title = "결제"
     
