@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 
   def charts
     @title = "일반차트"
-
+    @urlparam = request.query_parameters['name']
   end
   
   def weekcharts
