@@ -38,11 +38,10 @@
       </div>
       <div class="card-body">
         <div class="table" id="chart">
-          <button type="button" class="btn btn-danger" style="width:23%; font-size:15px;"disabled>고</br>&nbsp</button>
-          <button type="button" class="btn btn-warning" style="width:23%; font-size:15px;" disabled>C1</br>&nbsp</button>
-          <button type="button" class="btn btn-primary" style="width:23%; font-size:15px;" disabled>저</br>&nbsp</button>
-          <button type="button" class="btn btn-dark" style="width:23%; font-size:15px;" disabled>세력지수</br>&nbsp</button>
-          </br></br>
+          <div class="d-inline-block btn btn-danger" style="width:23%; font-size:15px; background-color:#e32837">고</br>&nbsp</div>
+          <div class="d-inline-block btn btn-warning" style="width:23%; font-size:15px; background-color:#ffcb1a">C1</br>&nbsp</div>
+          <div class="d-inline-block btn btn-primary" style="width:23%; font-size:15px; background-color:#1a78ff">저</br>&nbsp</div>
+          <div class="d-inline-block btn btn-dark" style="width:23%; font-size:15px; background-color:#282d31">세력지수</br>&nbsp</div>
         </div>
       </div>
     </div>
@@ -66,10 +65,10 @@
       success: function(data) {
         var json_data = '';
         $.each(data, function(key, value){
-          json_data += '<button type="button" class="btn btn-danger" style="width:25%; font-size:15px;"disabled>'+'고'+'</br>'+value.dayc1high+'</button>';
-          json_data += '<button type="button" class="btn btn-warning" style="width:25%; font-size:15px;" disabled>'+value.c1+'</br>'+value.c1high+'</button>';
-          json_data += '<button type="button" class="btn btn-primary" style="width:25%; font-size:15px;" disabled>'+'저'+'</br>'+value.dayc1low+'</button>';
-          json_data += '<button type="button" class="btn btn-dark" style="width:25%; font-size:15px;" disabled>'+'세력지수'+'</br>'+value.power+'</button>';
+          json_data += '<div class="d-inline-block btn btn-danger" style="width:23%; font-size:15px; background-color:#e32837">'+'고'+'</br>'+value.dayc1high+'</div>';
+          json_data += '<div class="d-inline-block btn btn-warning" style="width:23%; font-size:15px; background-color:#ffcb1a">'+value.c1+'</br>'+value.c1high+'</div>';
+          json_data += '<div class="d-inline-block btn btn-primary" style="width:23%; font-size:15px; background-color:#1a78ff">'+'저'+'</br>'+value.dayc1low+'</div>';
+          json_data += '<div class="d-inline-block btn btn-dark" style="width:23%; font-size:15px; background-color:#282d31">'+'세력지수'+'</br>'+value.power+'</div>';
         });
         $('#chart').html(json_data);
       }
