@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_model_session
   end
   
-  root 'users#sign_in'
+  root 'home#bye'
   
+  get 'home/bye' => 'home#bye'
   get 'home/index' => 'home#index'
   get 'home/charts' => 'home#charts'
   get 'home/weekcharts' => 'home#weekcharts'
